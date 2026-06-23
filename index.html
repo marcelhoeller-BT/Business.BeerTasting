@@ -1,0 +1,807 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="de"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>BeerTasting for Business | Marketing für Brauereien</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d9dadb",
+                        "tertiary": "#715c00",
+                        "on-primary": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "secondary-container": "#e4e2e1",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "text-muted": "#64748B",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-container": "#656464",
+                        "on-primary-fixed": "#2a1700",
+                        "primary": "#855300",
+                        "outline": "#867461",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-container": "#524200",
+                        "on-secondary-fixed-variant": "#474746",
+                        "primary-fixed-dim": "#ffb95f",
+                        "text-main": "#1A1A1A",
+                        "on-background": "#191c1d",
+                        "on-tertiary-fixed": "#231b00",
+                        "tertiary-fixed-dim": "#e3c458",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "inverse-surface": "#2e3132",
+                        "primary-container": "#f59e0b",
+                        "primary-fixed": "#ffddb8",
+                        "surface-container": "#edeeef",
+                        "secondary-fixed": "#e4e2e1",
+                        "inverse-primary": "#ffb95f",
+                        "secondary": "#5f5e5e",
+                        "on-tertiary-fixed-variant": "#554500",
+                        "tertiary-fixed": "#ffe17a",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#191c1d",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-fixed-variant": "#653e00",
+                        "surface-white": "#FFFFFF",
+                        "on-surface-variant": "#534434",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fa",
+                        "border-subtle": "#E2E8F0",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f8f9fa",
+                        "surface-tint": "#855300",
+                        "inverse-on-surface": "#f0f1f2",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#d8c3ad",
+                        "on-primary-container": "#613b00",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#ccaf45"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "stack-lg": "32px",
+                        "margin-desktop": "40px",
+                        "stack-sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "title-lg": ["Inter"],
+                        "headline-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .amber-glow {
+            box-shadow: 0 4px 24px -1px rgba(245, 158, 11, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-text-main font-body-md selection:bg-primary-container selection:text-white">
+<!-- TopAppBar -->
+<header class="bg-surface-white/90 backdrop-blur-md border-b border-border-subtle fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-md">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-2">
+<img alt="BeerTasting for Business" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeH7JgJKKXej989QEF2QEVcz7Gojr5sulboSemIHPo8My9goPsZE7auilTwYMhof6PXNm88rkdR-NZwlnIXEr4xcK4tGs6Q66j1nowcn2e5YXFiZoQx1QPEOnoA9SvoVyBrEofbBW5mET1lbrMcFxw_Mj0tkx0z0dy5ZK7uPGAD2owkJ3MgYzY8nt7ug39WGAI6YpmY5z7ivj_8aW0c4rHOf0utbxhrDIsMw5MqWolhtCTsgQPWEMh7Dv_CAEUN_4AW-2d3UWvDUM">
+</div>
+<div class="hidden lg:flex items-center gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#home">Home</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#pakete">Pakete</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#data-insights">Data &amp; Insights</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#community-award">Community Award</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#challenge">BeerTasting Challenge</a>
+<a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#">BeerTasting App</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold hover:opacity-90 transition-opacity font-label-md text-label-md">
+                Kontakt
+            </button>
+<button class="lg:hidden p-2 text-secondary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-20">
+<!-- New Hero Section -->
+<section class="w-full h-[90vh] overflow-hidden" id="home">
+<img alt="BeerTasting Hero" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN8rPfhI7l4ly4NOdj2Gf4-uHTO37X5II_ytXoxWDayLyU9ETxKlOFwI1d4TeCrih-MkIDVEQejvNRiN7UHfMR4cDRbe-ZzSxk_2xRdG1wAb6ii8MOTmzBgKu-IMq3AV8WrxbgJUnlOHEedjO8Q4Zam5P5hkHmpCb7R3FlSvWfcSvWvawWosVo0vBUKtSOEVDe6wJRM4fw6yEIecjAQ1wRykbOB1mWJ2v5Fj5ngxwWrpgNnnZmccKBbuZKD5W4Lln9tV5MKzeUNaM">
+</section>
+<!-- New Hero Content Section -->
+<section class="bg-surface-white py-24 px-margin-mobile">
+<div class="max-w-container-max mx-auto text-center space-y-8">
+<div class="inline-flex items-center px-6 py-2 bg-primary-container text-white rounded-full font-label-md text-label-md uppercase tracking-wider mx-auto">
+            Europas größte Bier-Plattform
+        </div>
+<h1 class="font-display-lg text-display-lg leading-tight">
+            Marketing für <br>
+<span class="text-primary-container">Brauereien, die wachsen.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-text-muted max-w-[480px] mx-auto">
+            Positionieren Sie Ihre Marke direkt in der aktiven Zielgruppe von 245.000+ Bierliebhabern.
+        </p>
+<div class="w-full max-w-4xl mx-auto flex flex-col lg:flex-row gap-6 items-stretch pt-4">
+<div class="flex-grow bg-white rounded-xl border border-outline-variant overflow-hidden shadow-sm amber-glow" id="hero-brewery-search-widget">
+<div class="p-4 border-b border-outline-variant">
+<div class="relative text-left">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted">search</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all font-body-md" id="hero-brewery-search-input" placeholder="z.B. Schönram, Augustiner, Wieninger..." type="text">
+</div>
+</div>
+<div class="max-h-[200px] overflow-y-auto bg-white text-left" id="hero-brewery-results-container"><div class="p-6 text-center text-text-muted text-sm">Geben Sie mindestens 2 Zeichen ein, um nach Brauereien zu suchen.</div></div>
+</div>
+<div class="lg:w-1/3 flex flex-col justify-center p-6 bg-surface-container-low rounded-xl border border-border-subtle text-center space-y-4">
+<p class="font-label-sm text-text-muted uppercase">Unsere Angebote</p>
+<h4 class="font-bold text-text-main">Passende Pakete für Sie</h4>
+<a class="bg-primary-container text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-all text-center" href="#pakete">
+                    Pakete ansehen
+                </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Bar with JS Counter -->
+<section class="bg-inverse-surface py-12" id="stats-bar">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-gutter text-center">
+<div class="space-y-1">
+<p class="font-headline-lg text-white"><span class="kpi-counter" data-target="245000">245.000</span><span class="kpi-plus transition-opacity duration-300">+</span></p>
+<p class="text-secondary-fixed font-label-md">BeerTaster</p>
+</div>
+<div class="space-y-1">
+<p class="font-headline-lg text-white"><span class="kpi-counter" data-target="5000000">5.000.000</span><span class="kpi-plus transition-opacity duration-300">+</span></p>
+<p class="text-secondary-fixed font-label-md">Bier-Bewertungen</p>
+</div>
+<div class="space-y-1">
+<p class="font-headline-lg text-white"><span class="kpi-counter" data-target="370000">370.000</span><span class="kpi-plus transition-opacity duration-300">+</span></p>
+<p class="text-secondary-fixed font-label-md">Biere in Datenbank</p>
+</div>
+<div class="space-y-1">
+<p class="font-headline-lg text-white"><span class="kpi-counter" data-target="25000">25.000</span><span class="kpi-plus transition-opacity duration-300">+</span></p>
+<p class="text-secondary-fixed font-label-md">Brauereien</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Section (Bento Grid Style) -->
+<section class="py-24 bg-surface">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-display-lg text-display-lg font-bold tracking-tight text-on-surface mb-8">Ihre Brauerei. <br><span class="text-primary-container">Sichtbar wo es zählt.</span></h2>
+<p class="text-text-muted max-w-2xl mx-auto text-body-lg">Wir verbinden handwerkliche Braukunst mit modernster Datenanalyse und digitalem Marketing.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-white p-8 rounded-xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">groups</span>
+</div>
+<h3 class="font-title-lg text-title-lg mb-3">Aktive Zielgruppe</h3>
+<p class="text-text-muted font-body-md">Erreichen Sie hunderttausende Bier-Enthusiasten direkt dort, wo sie ihre Leidenschaft ausleben.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-white p-8 rounded-xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">analytics</span>
+</div>
+<h3 class="font-title-lg text-title-lg mb-3">Analytics &amp; Daten</h3>
+<p class="text-text-muted font-body-md">Echtzeit-Einblicke in die Performance Ihrer Biere und detaillierte Demographie Ihrer Fans.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-white p-8 rounded-xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">emoji_events</span>
+</div>
+<h3 class="font-title-lg text-title-lg mb-3">BeerTasting Challenges</h3>
+<p class="text-text-muted font-body-md">Incentivieren Sie Probierkäufe durch digitale Gamification und exklusive Badge-Kampagnen.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-white p-8 rounded-xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">verified_user</span>
+</div>
+<h3 class="font-title-lg text-title-lg mb-3">Community Badge</h3>
+<p class="text-text-muted font-body-md">Ein Gütesiegel direkt in der App, das für Qualität und Vertrauen innerhalb der Community steht.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-white p-8 rounded-xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">newspaper</span>
+</div>
+<h3 class="font-title-lg text-title-lg mb-3">Exklusiver Newsartikel</h3>
+<p class="text-text-muted font-body-md">Storytelling pur: Wir präsentieren Ihre Brauerei in redaktionellen Beiträgen in App und Web.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-white p-8 rounded-xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">calendar_month</span>
+</div>
+<h3 class="font-title-lg text-title-lg mb-3">Monatlich kündbar</h3>
+<p class="text-text-muted font-body-md">Maximale Flexibilität für Ihr Marketing-Budget. Keine langen Laufzeiten, volle Kontrolle.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-24 bg-surface" id="pakete">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-display-lg text-display-lg font-bold tracking-tight text-on-surface mb-8">Unsere Pläne. <br><span class="text-primary-container">Ihr Vorteil.</span></h2>
+<p class="text-text-muted text-body-lg max-w-2xl mx-auto">Skalierbare Lösungen für jede Brauereigröße.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-start">
+<!-- Basic -->
+<div class="bg-surface-white p-8 rounded-xl border border-border-subtle flex flex-col h-full">
+<p class="font-label-sm text-text-muted uppercase mb-2">Einstieg</p>
+<h3 class="font-headline-md mb-4">Basic</h3>
+<div class="mb-8">
+<span class="text-4xl font-bold">€49</span>
+<span class="text-text-muted"> / Monat</span>
+</div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Basis-Profil</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Dashboard-Zugang</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Bewertungs-Analytics</li>
+<li class="text-text-muted/50 flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">close</span> Premium Support</li>
+</ul>
+<button class="w-full border border-outline py-4 rounded-xl font-bold hover:bg-surface-container-low transition-all">Jetzt starten</button>
+</div>
+<!-- Silber (Featured) -->
+<div class="bg-surface-white p-8 rounded-xl border-2 border-primary-container relative flex flex-col h-full amber-glow">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-container text-white px-4 py-1 rounded-full font-label-sm font-bold uppercase">Empfohlen</div>
+<p class="font-label-sm text-primary uppercase mb-2">Wachstum</p>
+<h3 class="font-headline-md mb-4">Silber</h3>
+<div class="mb-8">
+<span class="text-4xl font-bold">€149</span>
+<span class="text-text-muted"> / Monat</span>
+</div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Alles aus Basic</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Onlineshop Integration&nbsp;</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Community Badge</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Erweiterte Zielgruppendaten</li>
+</ul>
+<button class="w-full bg-primary-container text-white py-4 rounded-xl font-bold hover:opacity-90 transition-all shadow-md">Jetzt starten</button>
+</div>
+<!-- Gold -->
+<div class="bg-surface-white p-8 rounded-xl border border-border-subtle flex flex-col h-full">
+<p class="font-label-sm text-text-muted uppercase mb-2">Professional</p>
+<h3 class="font-headline-md mb-4">Gold</h3>
+<div class="mb-8">
+<span class="text-4xl font-bold">€399</span>
+<span class="text-text-muted"> / Monat</span>
+</div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Alles aus Silber</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> individuele Marketing Kampagnen</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Push-Benachrichtigungen</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Priority Support</li>
+</ul>
+<button class="w-full border border-outline py-4 rounded-xl font-bold hover:bg-surface-container-low transition-all">Jetzt starten</button>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+<a class="bg-primary-container text-white px-12 py-4 rounded-xl font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1 hover:brightness-110 active:scale-95 transition-all duration-300 text-center inline-flex items-center gap-2" href="#">
+                Vertrieb kontaktieren
+                <span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Data & Insights Section -->
+<section class="py-24 bg-surface-white overflow-hidden" id="data-insights">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col lg:flex-row gap-16 items-center">
+<div class="lg:w-1/2 relative">
+<div class="bg-surface-container-low rounded-3xl p-4 lg:p-8 border border-border-subtle">
+<img alt="Analytics Dashboard" class="rounded-xl shadow-lg w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBecYpQuvjFJ5o3NvDjLDeSl64aXn9WFrQNqPcy8EYLXWIaXsFnlywsuxUcIyfboAfGorv87D6S-JyZ66p_-avx3f5w5pAHnS5uLoMXguucZrG5BV0y0ec53Mc3tuE505_Kzqov_aJwuULV4jz9E_cF4GZQfO1XIRy4a-CXEtP7rInx1Rqzh3Z04A8h4KkyR0jesmstjonvwipU2wfZCDiIFk8Qr4vPAREUZm-pgTwKlU5cZpZRrRiI54wRDGwOEV4K7sx5IfXpQuvKHg">
+</div>
+<div class="absolute -right-4 top-1/4 bg-white p-4 rounded-xl shadow-xl hidden md:block border border-border-subtle">
+<p class="text-label-sm text-text-muted uppercase">Benchmarking</p>
+<p class="font-bold text-primary">Kunden trinken auch</p>
+</div>
+</div>
+<div class="lg:w-1/2 space-y-8">
+<h2 class="font-display-lg text-display-lg font-bold tracking-tight leading-tight text-on-surface mb-8">Daten, <br class=""><span class="text-primary-container">die Entscheidungen treffen.</span></h2>
+<p class="text-body-lg text-text-muted">
+                    Hören Sie auf zu raten. Sehen Sie in Echtzeit, wer Ihr Bier trinkt, wo es am besten bewertet wird und welche Trends sich abzeichnen. Unsere Analytics-Plattform liefert Ihnen die harten Fakten für Ihre Produktentwicklung und Vertriebssteuerung.
+                </p>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<span class="font-body-md">Detaillierte Demographien (Alter, Geschlecht, Standort)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<span class="font-body-md">Vergleich mit Marktdurchschnitten (Benchmarking)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<span class="font-body-md">Saisonale Trends und Geschmackspräferenzen</span>
+</li>
+</ul>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary-container text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-all" id="trend-report-trigger">Kostenloser Trendreport 2026</button>
+<button class="border-2 border-primary-container text-primary-container px-8 py-4 rounded-xl font-bold hover:bg-primary-container/5 transition-all" onclick="window.open('{{DATA:SCREEN:SCREEN_2}}', '_blank')">
+                        Back-End Demo
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Award Section -->
+<section class="py-24 text-white bg-[#1a1a1a]" id="community-award">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col lg:flex-row gap-16 items-center">
+<div class="lg:w-1/2 space-y-8">
+<h2 class="font-display-lg text-display-lg font-bold tracking-tight leading-tight text-white mb-8">Der BeerTasting <br><span class="text-primary-container">Community Award</span></h2>
+<p class="text-secondary-fixed text-body-lg">
+                    Lassen Sie die Konsumenten entscheiden. Der Community Award ist keine Jury-Entscheidung, sondern die ehrliche Stimme Ihrer Kunden. Nutzen Sie diese Auszeichnung für Ihre PR and Ihr Marketing.
+                </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="flex items-start gap-4 group">
+<span class="material-symbols-outlined text-primary-container mt-1">visibility</span>
+<div class="space-y-1">
+<h4 class="font-bold text-title-lg text-white">Sichtbarkeit</h4>
+<p class="text-body-md text-on-primary/60">Top-Platzierung in der App und auf Social Media Kanälen.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 group">
+<span class="material-symbols-outlined text-primary-container mt-1">verified</span>
+<div class="space-y-1">
+<h4 class="font-bold text-title-lg text-white">Glaubwürdigkeit</h4>
+<p class="text-body-md text-on-primary/60">Authentisches Feedback von echten Genießern und Experten.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 group">
+<span class="material-symbols-outlined text-primary-container mt-1">campaign</span>
+<div class="space-y-1">
+<h4 class="font-bold text-title-lg text-white">PR-Potenzial</h4>
+<p class="text-body-md text-on-primary/60">Hochwertiges Material für Pressemitteilungen und Werbung.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 relative">
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+<div class="relative rounded-3xl overflow-hidden border border-white/10 amber-glow transition-transform duration-300 group-hover:scale-[1.02] rotate-3">
+<div class="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/40 to-transparent pointer-events-none z-10"></div>
+<img alt="Community Award" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW5ldtSDUZbf61pLTFWPL94jJ_z5n9Qef0bQMezY_UOYUTqTcd_LkAG0SkEp_UoeVX23s6lBzkRG1PjA6MyP-Hh5qvS5WCb6COattE46TMPvD5uvBIMh1QWozCosrZd5EjeIEqzH9dUIM7nKZs2rSWoJRQn_g32VYmvrQYHe6e05OApMlXfOGereShz7ZbMTgpsbOHEJhQG5EYPBeIlC_X4uasmwhSvxjfqRrtJXySARx8owiQyptMcJTkuYbQqGYpw9lHiaWeJme3zw">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- BeerTasting Challenge Section -->
+<section class="py-24 bg-surface-white" id="challenge">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16 space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/5 text-primary border border-primary/20 rounded-full font-label-sm text-label-sm mb-4 uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">event</span>
+<span class="">Wien Event 2026</span>
+</div>
+<h2 class="font-display-lg text-display-lg font-bold tracking-tight text-primary mb-8">Die BeerTasting Challenge Wien 2026</h2>
+<p class="text-secondary font-body-lg max-w-2xl mx-auto leading-relaxed">Entdecke Wiens beste Bier-Locations — und bringe echte Gäste in dein Lokal.</p>
+</div>
+<!-- Concept Block -->
+<div class="bg-surface-container-low rounded-3xl p-8 lg:p-12 mb-16 border border-border-subtle amber-glow overflow-hidden">
+<div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+<div class="lg:w-1/2 flex justify-center relative">
+<div class="absolute -inset-4 bg-primary/5 blur-3xl rounded-full"></div>
+<div class="relative max-w-[280px] md:max-w-[320px] transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+<img alt="BeerTasting Challenge App Screen" class="rounded-[2.5rem] shadow-2xl border-[8px] border-inverse-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDA74lq58zP4L85p2CxPFJZhoNQbcMc6NVA2J4yzykQ3s2adFxHO2wkbExcnlRjPjPbuzASuQtkJWUVZTzGp31ZZmzqafwaUGg5YdjYURJsWmq3A2hRhEQyVjoaSV9MmSZZ-jtWMhmkul_sslCVrQGR2lmL1AVwBOBlCFn2fjZ1-9XCW6yxXJQwvbt2ZDhwlkzW6EVQ2pok86zl2Ux49JHoshrbSRyCne5k3W1oedBG6WKV1DF9_XUTaSowTrwdWHqRTLxxGjEgH4">
+<div class="absolute -right-8 top-1/4 bg-surface-white p-4 rounded-2xl shadow-xl border border-border-subtle animate-bounce" style="animation-duration: 4s">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">military_tech</span>
+</div>
+<div>
+<p class="text-xs font-bold text-text-muted uppercase">Status</p>
+<p class="text-sm font-bold text-primary">Silber Badge nah!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 space-y-10">
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-text-main">So funktioniert die Challenge</h3>
+<p class="text-text-muted">In drei einfachen Schritten zum Bier-Experten und exklusiven Belohnungen.</p>
+</div>
+<div class="space-y-8">
+<div class="flex gap-6 group">
+<div class="flex-shrink-0 w-12 h-12 bg-primary-container/10 rounded-xl flex items-center justify-center text-primary-container font-bold text-xl border border-primary-container/20 group-hover:bg-primary-container group-hover:text-white transition-colors">1</div>
+<div class="space-y-1">
+<h4 class="font-bold text-title-lg flex items-center gap-2">Entdecken <span class="material-symbols-outlined text-primary-container text-sm">map</span></h4>
+<p class="text-text-muted">Finden Sie teilnehmende Brauereien und Gastronomie-Partner direkt auf der interaktiven Karte in der App.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="flex-shrink-0 w-12 h-12 bg-primary-container/10 rounded-xl flex items-center justify-center text-primary-container font-bold text-xl border border-primary-container/20 group-hover:bg-primary-container group-hover:text-white transition-colors">2</div>
+<div class="space-y-1">
+<h4 class="font-bold text-title-lg flex items-center gap-2">Check-in &amp; Bewerten <span class="material-symbols-outlined text-primary-container text-sm">rate_review</span></h4>
+<p class="text-text-muted">Besuchen Sie die Locations, scannen Sie die Biere vor Ort und geben Sie Ihr ehrliches Feedback ab.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="flex-shrink-0 w-12 h-12 bg-primary-container/10 rounded-xl flex items-center justify-center text-primary-container font-bold text-xl border border-primary-container/20 group-hover:bg-primary-container group-hover:text-white transition-colors">3</div>
+<div class="space-y-1">
+<h4 class="font-bold text-title-lg flex items-center gap-2">Sammeln &amp; Gewinnen <span class="material-symbols-outlined text-primary-container text-sm">emoji_events</span></h4>
+<p class="text-text-muted">Sammeln Sie digitale Badges (Bronze, Silber, Gold) und schalten Sie echte Belohnungen und Gutscheine frei.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Key Facts Bar -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter mb-20">
+<div class="bg-surface-white p-6 rounded-2xl border border-border-subtle flex items-center gap-4 shadow-sm hover:shadow-md transition-all">
+<div class="bg-primary-container/10 p-3 rounded-xl text-primary"><span class="material-symbols-outlined">calendar_today</span></div>
+<div>
+<p class="text-label-sm text-text-muted">Zeitraum</p>
+<p class="font-bold text-text-main">Ab 01. August 2026</p>
+</div>
+</div>
+<div class="bg-surface-white p-6 rounded-2xl border border-border-subtle flex items-center gap-4 shadow-sm hover:shadow-md transition-all">
+<div class="bg-primary-container/10 p-3 rounded-xl text-primary"><span class="material-symbols-outlined">restaurant</span></div>
+<div>
+<p class="text-label-sm text-text-muted">Netzwerk</p>
+<p class="font-bold text-text-main">40+ Gastronomien</p>
+</div>
+</div>
+<div class="bg-surface-white p-6 rounded-2xl border border-border-subtle flex items-center gap-4 shadow-sm hover:shadow-md transition-all">
+<div class="bg-primary-container/10 p-3 rounded-xl text-primary"><span class="material-symbols-outlined">person_pin_circle</span></div>
+<div>
+<p class="text-label-sm text-text-muted">Zielgruppe</p>
+<p class="font-bold text-text-main">20.000 User</p>
+</div>
+</div>
+<div class="bg-surface-white p-6 rounded-2xl border border-border-subtle flex items-center gap-4 shadow-sm hover:shadow-md transition-all">
+<div class="bg-primary-container/10 p-3 rounded-xl text-primary"><span class="material-symbols-outlined">mail</span></div>
+<div>
+<p class="text-label-sm text-text-muted">Reichweite</p>
+<p class="font-bold text-text-main">130.000 Abonnenten</p>
+</div>
+</div>
+</div>
+<!-- Reward System -->
+<div class="text-center mb-12">
+<h3 class="font-title-lg text-title-lg mb-8">Das Motivations-System für User</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-white p-8 rounded-2xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
+<div class="w-16 h-16 bg-[#CD7F32]/10 rounded-full flex items-center justify-center text-[#CD7F32] mx-auto mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: &quot;FILL&quot; 1;">military_tech</span>
+</div>
+<h4 class="font-bold text-title-lg mb-2">Bronze Badge</h4>
+<p class="text-label-sm text-text-muted mb-4 uppercase tracking-wider">Level 1</p>
+<p class="text-body-md">5 Check-ins in verschiedenen Locations.</p>
+<p class="mt-4 font-bold text-primary">Belohnung: Digitales Badge</p>
+</div>
+<div class="bg-surface-white p-8 rounded-2xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
+<div class="w-16 h-16 bg-[#C0C0C0]/10 rounded-full flex items-center justify-center text-[#C0C0C0] mx-auto mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: &quot;FILL&quot; 1;">military_tech</span>
+</div>
+<h4 class="font-bold text-title-lg mb-2">Silber Badge</h4>
+<p class="text-label-sm text-text-muted mb-4 uppercase tracking-wider">Level 2</p>
+<p class="text-body-md">15 Check-ins.</p>
+<p class="mt-4 font-bold text-primary">Belohnung: €10 Shop-Gutschein</p>
+</div>
+<div class="bg-surface-white p-8 rounded-2xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
+<div class="w-16 h-16 bg-[#FFD700]/10 rounded-full flex items-center justify-center text-[#FFD700] mx-auto mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: &quot;FILL&quot; 1;">military_tech</span>
+</div>
+<h4 class="font-bold text-title-lg mb-2">Gold Badge</h4>
+<p class="text-label-sm text-text-muted mb-4 uppercase tracking-wider">Level 3</p>
+<p class="text-body-md">30 Check-ins.</p>
+<p class="mt-4 font-bold text-primary">Belohnung: Exklusives Fan-Package</p>
+</div>
+</div>
+</div>
+<!-- Scaling Teaser & CTAs -->
+<div class="text-center space-y-10">
+<p class="text-label-md text-text-muted italic">2027: Expansion der Challenge auf weitere Landeshauptstädte in Planung.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2 w-full sm:w-auto">
+                    Als Gastronom mitmachen <span class="material-symbols-outlined">login</span>
+</button>
+<button class="border border-outline text-text-main px-8 py-4 rounded-xl font-bold hover:bg-surface-container-low transition-all flex items-center justify-center w-full sm:w-auto">
+                    Brauerei Bundle anfragen
+                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-24 bg-surface">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="bg-primary rounded-3xl p-12 text-center text-on-primary space-y-8 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none"></div>
+<div class="relative z-10 space-y-6">
+<h2 class="font-display-lg text-display-lg font-bold tracking-tight text-on-primary mb-8">Ihre Brauerei. <br><span class="text-primary-container">Sichtbar wo es zählt.</span></h2>
+<p class="text-on-primary/80 max-w-xl mx-auto">Erhalten Sie monatlich Insights zum Biermarkt und Updates zu unseren neuen Features.</p>
+<form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Anmeldung!');">
+<input class="flex-grow px-6 py-4 rounded-xl text-text-main border-none focus:ring-2 focus:ring-white transition-all outline-none" placeholder="E-Mail Adresse" required="" type="email">
+<button class="bg-inverse-surface text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-all" type="submit">Abonnieren</button>
+</form>
+<p class="text-xs text-on-primary/60">Durch die Anmeldung akzeptieren Sie unsere Datenschutzbestimmungen.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container py-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<img alt="BeerTasting Logo" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeH7JgJKKXej989QEF2QEVcz7Gojr5sulboSemIHPo8My9goPsZE7auilTwYMhof6PXNm88rkdR-NZwlnIXEr4xcK4tGs6Q66j1nowcn2e5YXFiZoQx1QPEOnoA9SvoVyBrEofbBW5mET1lbrMcFxw_Mj0tkx0z0dy5ZK7uPGAD2owkJ3MgYzY8nt7ug39WGAI6YpmY5z7ivj_8aW0c4rHOf0utbxhrDIsMw5MqWolhtCTsgQPWEMh7Dv_CAEUN_4AW-2d3UWvDUM">
+</div>
+<p class="text-secondary font-body-md">Kalea GmbH<br>Biberngasse 31a&nbsp;<br>5020 Salzburg, Österreich</p>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-6">Plattform</h4>
+<ul class="space-y-4 text-secondary">
+<li class=""><a class="hover:text-primary transition-colors" href="#">Für Brauereien</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">BeerTasting App</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#challenge">BeerTasting Challenge</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#community-award">Community Award</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-6">Support</h4>
+<ul class="space-y-4 text-secondary">
+<li class=""><a class="hover:text-primary transition-colors" href="mailto:office@beertasting.com">Kontakt</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">FAQ für Business</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Hilfe Center</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-6">Rechtliches</h4>
+<ul class="space-y-4 text-secondary">
+<li class=""><a class="hover:text-primary transition-colors" href="#">Impressum</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Datenschutz</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">AGB</a></li>
+</ul>
+</div>
+</div>
+<div class="px-margin-desktop max-w-container-max mx-auto mt-12 pt-8 border-t border-border-subtle text-center text-text-muted text-label-sm">
+        © 2024 BeerTasting for Business. Alle Rechte vorbehalten.
+    </div>
+</footer>
+<script>
+    // Smooth scroll implementation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Simple header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('shadow-md');
+        } else {
+            header.classList.remove('shadow-md');
+        }
+    });
+
+    // KPI Counter Animation Logic
+    (function() {
+        const duration = 2000;
+        const fps = 60;
+        const interval = 1000 / fps;
+        const totalSteps = duration / interval;
+
+        const formatNumber = (num) => {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        };
+
+        const easeOutQuad = (t) => t * (2 - t);
+
+        const animateKPI = (element) => {
+            const target = parseInt(element.getAttribute('data-target'));
+            const plusSign = element.nextElementSibling;
+            let currentStep = 0;
+
+            const counter = setInterval(() => {
+                currentStep++;
+                const progress = currentStep / totalSteps;
+                const easedProgress = easeOutQuad(progress);
+                const currentValue = Math.floor(easedProgress * target);
+
+                element.textContent = formatNumber(currentValue);
+
+                if (currentStep >= totalSteps) {
+                    clearInterval(counter);
+                    element.textContent = formatNumber(target);
+                    if (plusSign && plusSign.classList.contains('kpi-plus')) {
+                        plusSign.classList.remove('opacity-0');
+                    }
+                }
+            }, interval);
+        };
+
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.kpi-counter');
+                    counters.forEach(counter => animateKPI(counter));
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsBar = document.getElementById('stats-bar');
+        if (statsBar) {
+            observer.observe(statsBar);
+        }
+    })();
+</script>
+<script>
+    // Brewery Search Logic
+    (function() {
+        const input = document.getElementById('hero-brewery-search-input');
+        const container = document.getElementById('hero-brewery-results-container');
+        if (!input || !container) return;
+        let debounceTimer;
+
+        input.addEventListener('input', (e) => {
+            clearTimeout(debounceTimer);
+            const query = e.target.value.trim();
+
+            if (query.length < 2) {
+                container.innerHTML = '<div class="p-6 text-center text-text-muted text-sm">Geben Sie mindestens 2 Zeichen ein, um nach Brauereien zu suchen.</div>';
+                return;
+            }
+
+            container.innerHTML = '<div class="p-6 text-center"><div class="animate-spin inline-block w-5 h-5 border-2 border-primary border-t-transparent rounded-full mb-2"></div><p class="text-xs text-text-muted">Suche...</p></div>';
+
+            debounceTimer = setTimeout(() => {
+                fetch(`https://www.beertasting.com/api/v1/public/search?query=${encodeURIComponent(query)}&types=brewery`)
+                    .then(res => res.json())
+                    .then(data => {
+                        const breweries = data.data || [];
+                        if (breweries.length === 0) {
+                            container.innerHTML = '<div class="p-6 text-center text-text-muted text-sm">Keine Brauerei gefunden.</div>';
+                            return;
+                        }
+
+                        container.innerHTML = breweries.map(brewery => `
+                            <div class="flex items-center gap-3 p-3 border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+                                <img src="${brewery.image || 'https://www.beertasting.com/assets/img/placeholder-brewery.png'}" class="w-8 h-8 rounded-full object-cover border border-outline-variant" alt="${brewery.name}">
+                                <div class="flex-grow">
+                                    <h4 class="text-sm font-bold text-text-main">${brewery.name}</h4>
+                                    <p class="text-[10px] text-text-muted">${brewery.country_name || ''}</p>
+                                </div>
+                                <a href="https://www.beertasting.com/de/breweries/${brewery.slug}" target="_blank" class="text-primary text-xs font-bold hover:underline">Profil</a>
+                            </div>
+                        `).join('');
+                    })
+                    .catch(err => {
+                        container.innerHTML = '<div class="p-6 text-center text-error text-xs">Fehler bei der Suche.</div>';
+                    });
+            }, 300);
+        });
+    })();
+</script>
+<div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm" id="trend-report-modal">
+<div class="bg-surface-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden border border-border-subtle amber-glow relative">
+<button class="absolute top-4 right-4 text-text-muted hover:text-text-main transition-colors" id="close-modal">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="p-8 space-y-6">
+<div class="text-center space-y-2">
+<h3 class="font-headline-md text-headline-md text-text-main">Trendreport 2026 herunterladen</h3>
+<p class="text-text-muted text-body-md">Geben Sie Ihre Daten ein, um den exklusiven BeerTasting Trendreport 2026 sofort als PDF zu erhalten.</p>
+</div>
+<form class="space-y-4" id="trend-report-form">
+<div class="space-y-1">
+<label class="text-label-sm font-bold text-text-main uppercase">Name der Brauerei</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" placeholder="Brauerei Name" required="" type="text">
+</div>
+<div class="space-y-1">
+<label class="text-label-sm font-bold text-text-main uppercase">E-Mail-Adresse</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" placeholder="ihre@email.de" required="" type="email">
+</div>
+<button class="w-full bg-primary-container text-white py-4 rounded-xl font-bold hover:opacity-90 transition-all shadow-md" type="submit">Report jetzt herunterladen</button>
+</form>
+<div class="hidden text-center py-8 space-y-4" id="success-message">
+<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center text-primary-container mx-auto">
+<span class="material-symbols-outlined text-4xl">download_done</span>
+</div>
+<h4 class="font-bold text-title-lg">Download gestartet!</h4>
+<p class="text-text-muted">Vielen Dank für Ihr Interesse. Der Report wird in Kürze in Ihrem Postfach landen.</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+    (function(){
+        const modal = document.getElementById('trend-report-modal');
+        const trigger = document.getElementById('trend-report-trigger');
+        const closeBtn = document.getElementById('close-modal');
+        const form = document.getElementById('trend-report-form');
+        const success = document.getElementById('success-message');
+        
+        function openModal(){
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(){
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+            form.classList.remove('hidden');
+            success.classList.add('hidden');
+            form.reset();
+        }
+        
+        trigger.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+        form.addEventListener('submit', (e) => { 
+            e.preventDefault(); 
+            form.classList.add('hidden'); 
+            success.classList.remove('hidden'); 
+            setTimeout(closeModal, 3000); 
+        });
+    })();
+</script>
+
+
+
+
+</body></html>
