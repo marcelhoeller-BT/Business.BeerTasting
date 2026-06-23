@@ -1,9 +1,11 @@
-<!DOCTYPE html><html class="scroll-smooth" lang="de"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>BeerTasting for Business | Marketing für Brauereien</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -111,6 +113,17 @@
         .amber-glow {
             box-shadow: 0 4px 24px -1px rgba(245, 158, 11, 0.15);
         }
+        /* Custom scrollbar for search results */
+        #hero-brewery-results-container::-webkit-scrollbar {
+            width: 4px;
+        }
+        #hero-brewery-results-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        #hero-brewery-results-container::-webkit-scrollbar-thumb {
+            background: #d8c3ad;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body class="bg-background text-text-main font-body-md selection:bg-primary-container selection:text-white">
@@ -118,7 +131,7 @@
 <header class="bg-surface-white/90 backdrop-blur-md border-b border-border-subtle fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-md">
 <nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20">
 <div class="flex items-center gap-2">
-<img alt="BeerTasting for Business" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeH7JgJKKXej989QEF2QEVcz7Gojr5sulboSemIHPo8My9goPsZE7auilTwYMhof6PXNm88rkdR-NZwlnIXEr4xcK4tGs6Q66j1nowcn2e5YXFiZoQx1QPEOnoA9SvoVyBrEofbBW5mET1lbrMcFxw_Mj0tkx0z0dy5ZK7uPGAD2owkJ3MgYzY8nt7ug39WGAI6YpmY5z7ivj_8aW0c4rHOf0utbxhrDIsMw5MqWolhtCTsgQPWEMh7Dv_CAEUN_4AW-2d3UWvDUM">
+<img alt="BeerTasting for Business" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeH7JgJKKXej989QEF2QEVcz7Gojr5sulboSemIHPo8My9goPsZE7auilTwYMhof6PXNm88rkdR-NZwlnIXEr4xcK4tGs6Q66j1nowcn2e5YXFiZoQx1QPEOnoA9SvoVyBrEofbBW5mET1lbrMcFxw_Mj0tkx0z0dy5ZK7uPGAD2owkJ3MgYzY8nt7ug39WGAI6YpmY5z7ivj_8aW0c4rHOf0utbxhrDIsMw5MqWolhtCTsgQPWEMh7Dv_CAEUN_4AW-2d3UWvDUM"/>
 </div>
 <div class="hidden lg:flex items-center gap-8">
 <a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#home">Home</a>
@@ -141,7 +154,7 @@
 <main class="pt-20">
 <!-- New Hero Section -->
 <section class="w-full h-[90vh] overflow-hidden" id="home">
-<img alt="BeerTasting Hero" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN8rPfhI7l4ly4NOdj2Gf4-uHTO37X5II_ytXoxWDayLyU9ETxKlOFwI1d4TeCrih-MkIDVEQejvNRiN7UHfMR4cDRbe-ZzSxk_2xRdG1wAb6ii8MOTmzBgKu-IMq3AV8WrxbgJUnlOHEedjO8Q4Zam5P5hkHmpCb7R3FlSvWfcSvWvawWosVo0vBUKtSOEVDe6wJRM4fw6yEIecjAQ1wRykbOB1mWJ2v5Fj5ngxwWrpgNnnZmccKBbuZKD5W4Lln9tV5MKzeUNaM">
+<img alt="BeerTasting Hero" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN8rPfhI7l4ly4NOdj2Gf4-uHTO37X5II_ytXoxWDayLyU9ETxKlOFwI1d4TeCrih-MkIDVEQejvNRiN7UHfMR4cDRbe-ZzSxk_2xRdG1wAb6ii8MOTmzBgKu-IMq3AV8WrxbgJUnlOHEedjO8Q4Zam5P5hkHmpCb7R3FlSvWfcSvWvawWosVo0vBUKtSOEVDe6wJRM4fw6yEIecjAQ1wRykbOB1mWJ2v5Fj5ngxwWrpgNnnZmccKBbuZKD5W4Lln9tV5MKzeUNaM"/>
 </section>
 <!-- New Hero Content Section -->
 <section class="bg-surface-white py-24 px-margin-mobile">
@@ -150,21 +163,23 @@
             Europas größte Bier-Plattform
         </div>
 <h1 class="font-display-lg text-display-lg leading-tight">
-            Marketing für <br>
+            Marketing für <br/>
 <span class="text-primary-container">Brauereien, die wachsen.</span>
 </h1>
 <p class="font-body-lg text-body-lg text-text-muted max-w-[480px] mx-auto">
             Positionieren Sie Ihre Marke direkt in der aktiven Zielgruppe von 245.000+ Bierliebhabern.
         </p>
 <div class="w-full max-w-4xl mx-auto flex flex-col lg:flex-row gap-6 items-stretch pt-4">
-<div class="flex-grow bg-white rounded-xl border border-outline-variant overflow-hidden shadow-sm amber-glow" id="hero-brewery-search-widget">
+<div class="flex-grow bg-white rounded-xl border border-outline-variant overflow-hidden shadow-sm amber-glow flex flex-col" id="hero-brewery-search-widget">
 <div class="p-4 border-b border-outline-variant">
 <div class="relative text-left">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted">search</span>
-<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all font-body-md" id="hero-brewery-search-input" placeholder="z.B. Schönram, Augustiner, Wieninger..." type="text">
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all font-body-md" id="hero-brewery-search-input" placeholder="z.B. Schönram, Augustiner, Wieninger..." type="text"/>
 </div>
 </div>
-<div class="max-h-[200px] overflow-y-auto bg-white text-left" id="hero-brewery-results-container"><div class="p-6 text-center text-text-muted text-sm">Geben Sie mindestens 2 Zeichen ein, um nach Brauereien zu suchen.</div></div>
+<div class="max-h-[360px] min-h-[100px] overflow-y-auto bg-surface-container-lowest text-left p-2 flex flex-col gap-2" id="hero-brewery-results-container">
+<div class="p-6 text-center text-text-muted text-sm">Geben Sie mindestens 2 Zeichen ein, um nach Brauereien zu suchen.</div>
+</div>
 </div>
 <div class="lg:w-1/3 flex flex-col justify-center p-6 bg-surface-container-low rounded-xl border border-border-subtle text-center space-y-4">
 <p class="font-label-sm text-text-muted uppercase">Unsere Angebote</p>
@@ -203,14 +218,14 @@
 <section class="py-24 bg-surface">
 <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="text-center mb-16 space-y-4">
-<h2 class="font-display-lg text-display-lg font-bold tracking-tight text-on-surface mb-8">Ihre Brauerei. <br><span class="text-primary-container">Sichtbar wo es zählt.</span></h2>
+<h2 class="font-display-lg text-display-lg font-bold tracking-tight text-on-surface mb-8">Ihre Brauerei. <br/><span class="text-primary-container">Sichtbar wo es zählt.</span></h2>
 <p class="text-text-muted max-w-2xl mx-auto text-body-lg">Wir verbinden handwerkliche Braukunst mit modernster Datenanalyse und digitalem Marketing.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
 <!-- Card 1 -->
 <div class="bg-surface-white p-8 rounded-xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
 <div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">groups</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>groups</span>
 </div>
 <h3 class="font-title-lg text-title-lg mb-3">Aktive Zielgruppe</h3>
 <p class="text-text-muted font-body-md">Erreichen Sie hunderttausende Bier-Enthusiasten direkt dort, wo sie ihre Leidenschaft ausleben.</p>
@@ -218,7 +233,7 @@
 <!-- Card 2 -->
 <div class="bg-surface-white p-8 rounded-xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
 <div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">analytics</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>analytics</span>
 </div>
 <h3 class="font-title-lg text-title-lg mb-3">Analytics &amp; Daten</h3>
 <p class="text-text-muted font-body-md">Echtzeit-Einblicke in die Performance Ihrer Biere und detaillierte Demographie Ihrer Fans.</p>
@@ -226,7 +241,7 @@
 <!-- Card 3 -->
 <div class="bg-surface-white p-8 rounded-xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
 <div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">emoji_events</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>emoji_events</span>
 </div>
 <h3 class="font-title-lg text-title-lg mb-3">BeerTasting Challenges</h3>
 <p class="text-text-muted font-body-md">Incentivieren Sie Probierkäufe durch digitale Gamification und exklusive Badge-Kampagnen.</p>
@@ -234,7 +249,7 @@
 <!-- Card 4 -->
 <div class="bg-surface-white p-8 rounded-xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
 <div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">verified_user</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>verified_user</span>
 </div>
 <h3 class="font-title-lg text-title-lg mb-3">Community Badge</h3>
 <p class="text-text-muted font-body-md">Ein Gütesiegel direkt in der App, das für Qualität und Vertrauen innerhalb der Community steht.</p>
@@ -242,7 +257,7 @@
 <!-- Card 5 -->
 <div class="bg-surface-white p-8 rounded-xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
 <div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">newspaper</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>newspaper</span>
 </div>
 <h3 class="font-title-lg text-title-lg mb-3">Exklusiver Newsartikel</h3>
 <p class="text-text-muted font-body-md">Storytelling pur: Wir präsentieren Ihre Brauerei in redaktionellen Beiträgen in App und Web.</p>
@@ -250,7 +265,7 @@
 <!-- Card 6 -->
 <div class="bg-surface-white p-8 rounded-xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
 <div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">calendar_month</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>calendar_month</span>
 </div>
 <h3 class="font-title-lg text-title-lg mb-3">Monatlich kündbar</h3>
 <p class="text-text-muted font-body-md">Maximale Flexibilität für Ihr Marketing-Budget. Keine langen Laufzeiten, volle Kontrolle.</p>
@@ -262,7 +277,7 @@
 <section class="py-24 bg-surface" id="pakete">
 <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="text-center mb-16 space-y-4">
-<h2 class="font-display-lg text-display-lg font-bold tracking-tight text-on-surface mb-8">Unsere Pläne. <br><span class="text-primary-container">Ihr Vorteil.</span></h2>
+<h2 class="font-display-lg text-display-lg font-bold tracking-tight text-on-surface mb-8">Unsere Pläne. <br/><span class="text-primary-container">Ihr Vorteil.</span></h2>
 <p class="text-text-muted text-body-lg max-w-2xl mx-auto">Skalierbare Lösungen für jede Brauereigröße.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-start">
@@ -293,7 +308,7 @@
 </div>
 <ul class="space-y-4 mb-12 flex-grow">
 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Alles aus Basic</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Onlineshop Integration&nbsp;</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Onlineshop Integration </li>
 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Community Badge</li>
 <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">done</span> Erweiterte Zielgruppendaten</li>
 </ul>
@@ -330,7 +345,7 @@
 <div class="flex flex-col lg:flex-row gap-16 items-center">
 <div class="lg:w-1/2 relative">
 <div class="bg-surface-container-low rounded-3xl p-4 lg:p-8 border border-border-subtle">
-<img alt="Analytics Dashboard" class="rounded-xl shadow-lg w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBecYpQuvjFJ5o3NvDjLDeSl64aXn9WFrQNqPcy8EYLXWIaXsFnlywsuxUcIyfboAfGorv87D6S-JyZ66p_-avx3f5w5pAHnS5uLoMXguucZrG5BV0y0ec53Mc3tuE505_Kzqov_aJwuULV4jz9E_cF4GZQfO1XIRy4a-CXEtP7rInx1Rqzh3Z04A8h4KkyR0jesmstjonvwipU2wfZCDiIFk8Qr4vPAREUZm-pgTwKlU5cZpZRrRiI54wRDGwOEV4K7sx5IfXpQuvKHg">
+<img alt="Analytics Dashboard" class="rounded-xl shadow-lg w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBecYpQuvjFJ5o3NvDjLDeSl64aXn9WFrQNqPcy8EYLXWIaXsFnlywsuxUcIyfboAfGorv87D6S-JyZ66p_-avx3f5w5pAHnS5uLoMXguucZrG5BV0y0ec53Mc3tuE505_Kzqov_aJwuULV4jz9E_cF4GZQfO1XIRy4a-CXEtP7rInx1Rqzh3Z04A8h4KkyR0jesmstjonvwipU2wfZCDiIFk8Qr4vPAREUZm-pgTwKlU5cZpZRrRiI54wRDGwOEV4K7sx5IfXpQuvKHg"/>
 </div>
 <div class="absolute -right-4 top-1/4 bg-white p-4 rounded-xl shadow-xl hidden md:block border border-border-subtle">
 <p class="text-label-sm text-text-muted uppercase">Benchmarking</p>
@@ -338,7 +353,7 @@
 </div>
 </div>
 <div class="lg:w-1/2 space-y-8">
-<h2 class="font-display-lg text-display-lg font-bold tracking-tight leading-tight text-on-surface mb-8">Daten, <br class=""><span class="text-primary-container">die Entscheidungen treffen.</span></h2>
+<h2 class="font-display-lg text-display-lg font-bold tracking-tight leading-tight text-on-surface mb-8">Daten, <br class=""/><span class="text-primary-container">die Entscheidungen treffen.</span></h2>
 <p class="text-body-lg text-text-muted">
                     Hören Sie auf zu raten. Sehen Sie in Echtzeit, wer Ihr Bier trinkt, wo es am besten bewertet wird und welche Trends sich abzeichnen. Unsere Analytics-Plattform liefert Ihnen die harten Fakten für Ihre Produktentwicklung und Vertriebssteuerung.
                 </p>
@@ -358,7 +373,7 @@
 </ul>
 <div class="flex flex-col sm:flex-row gap-4">
 <button class="bg-primary-container text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-all" id="trend-report-trigger">Kostenloser Trendreport 2026</button>
-<button class="border-2 border-primary-container text-primary-container px-8 py-4 rounded-xl font-bold hover:bg-primary-container/5 transition-all" onclick="window.open('{{DATA:SCREEN:SCREEN_2}}', '_blank')">
+<button class="border-2 border-primary-container text-primary-container px-8 py-4 rounded-xl font-bold hover:bg-primary-container/5 transition-all">
                         Back-End Demo
                     </button>
 </div>
@@ -371,7 +386,7 @@
 <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="flex flex-col lg:flex-row gap-16 items-center">
 <div class="lg:w-1/2 space-y-8">
-<h2 class="font-display-lg text-display-lg font-bold tracking-tight leading-tight text-white mb-8">Der BeerTasting <br><span class="text-primary-container">Community Award</span></h2>
+<h2 class="font-display-lg text-display-lg font-bold tracking-tight leading-tight text-white mb-8">Der BeerTasting <br/><span class="text-primary-container">Community Award</span></h2>
 <p class="text-secondary-fixed text-body-lg">
                     Lassen Sie die Konsumenten entscheiden. Der Community Award ist keine Jury-Entscheidung, sondern die ehrliche Stimme Ihrer Kunden. Nutzen Sie diese Auszeichnung für Ihre PR and Ihr Marketing.
                 </p>
@@ -404,7 +419,7 @@
 <div class="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
 <div class="relative rounded-3xl overflow-hidden border border-white/10 amber-glow transition-transform duration-300 group-hover:scale-[1.02] rotate-3">
 <div class="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/40 to-transparent pointer-events-none z-10"></div>
-<img alt="Community Award" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW5ldtSDUZbf61pLTFWPL94jJ_z5n9Qef0bQMezY_UOYUTqTcd_LkAG0SkEp_UoeVX23s6lBzkRG1PjA6MyP-Hh5qvS5WCb6COattE46TMPvD5uvBIMh1QWozCosrZd5EjeIEqzH9dUIM7nKZs2rSWoJRQn_g32VYmvrQYHe6e05OApMlXfOGereShz7ZbMTgpsbOHEJhQG5EYPBeIlC_X4uasmwhSvxjfqRrtJXySARx8owiQyptMcJTkuYbQqGYpw9lHiaWeJme3zw">
+<img alt="Community Award" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW5ldtSDUZbf61pLTFWPL94jJ_z5n9Qef0bQMezY_UOYUTqTcd_LkAG0SkEp_UoeVX23s6lBzkRG1PjA6MyP-Hh5qvS5WCb6COattE46TMPvD5uvBIMh1QWozCosrZd5EjeIEqzH9dUIM7nKZs2rSWoJRQn_g32VYmvrQYHe6e05OApMlXfOGereShz7ZbMTgpsbOHEJhQG5EYPBeIlC_X4uasmwhSvxjfqRrtJXySARx8owiQyptMcJTkuYbQqGYpw9lHiaWeJme3zw"/>
 </div>
 </div>
 </div>
@@ -428,7 +443,7 @@
 <div class="lg:w-1/2 flex justify-center relative">
 <div class="absolute -inset-4 bg-primary/5 blur-3xl rounded-full"></div>
 <div class="relative max-w-[280px] md:max-w-[320px] transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-<img alt="BeerTasting Challenge App Screen" class="rounded-[2.5rem] shadow-2xl border-[8px] border-inverse-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDA74lq58zP4L85p2CxPFJZhoNQbcMc6NVA2J4yzykQ3s2adFxHO2wkbExcnlRjPjPbuzASuQtkJWUVZTzGp31ZZmzqafwaUGg5YdjYURJsWmq3A2hRhEQyVjoaSV9MmSZZ-jtWMhmkul_sslCVrQGR2lmL1AVwBOBlCFn2fjZ1-9XCW6yxXJQwvbt2ZDhwlkzW6EVQ2pok86zl2Ux49JHoshrbSRyCne5k3W1oedBG6WKV1DF9_XUTaSowTrwdWHqRTLxxGjEgH4">
+<img alt="BeerTasting Challenge App Screen" class="rounded-[2.5rem] shadow-2xl border-[8px] border-inverse-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDA74lq58zP4L85p2CxPFJZhoNQbcMc6NVA2J4yzykQ3s2adFxHO2wkbExcnlRjPjPbuzASuQtkJWUVZTzGp31ZZmzqafwaUGg5YdjYURJsWmq3A2hRhEQyVjoaSV9MmSZZ-jtWMhmkul_sslCVrQGR2lmL1AVwBOBlCFn2fjZ1-9XCW6yxXJQwvbt2ZDhwlkzW6EVQ2pok86zl2Ux49JHoshrbSRyCne5k3W1oedBG6WKV1DF9_XUTaSowTrwdWHqRTLxxGjEgH4"/>
 <div class="absolute -right-8 top-1/4 bg-surface-white p-4 rounded-2xl shadow-xl border border-border-subtle animate-bounce" style="animation-duration: 4s">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center text-white">
@@ -510,7 +525,7 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <div class="bg-surface-white p-8 rounded-2xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
 <div class="w-16 h-16 bg-[#CD7F32]/10 rounded-full flex items-center justify-center text-[#CD7F32] mx-auto mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-4xl" style="font-variation-settings: &quot;FILL&quot; 1;">military_tech</span>
+<span class="material-symbols-outlined text-4xl" style='font-variation-settings: "FILL" 1;'>military_tech</span>
 </div>
 <h4 class="font-bold text-title-lg mb-2">Bronze Badge</h4>
 <p class="text-label-sm text-text-muted mb-4 uppercase tracking-wider">Level 1</p>
@@ -519,7 +534,7 @@
 </div>
 <div class="bg-surface-white p-8 rounded-2xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
 <div class="w-16 h-16 bg-[#C0C0C0]/10 rounded-full flex items-center justify-center text-[#C0C0C0] mx-auto mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-4xl" style="font-variation-settings: &quot;FILL&quot; 1;">military_tech</span>
+<span class="material-symbols-outlined text-4xl" style='font-variation-settings: "FILL" 1;'>military_tech</span>
 </div>
 <h4 class="font-bold text-title-lg mb-2">Silber Badge</h4>
 <p class="text-label-sm text-text-muted mb-4 uppercase tracking-wider">Level 2</p>
@@ -528,7 +543,7 @@
 </div>
 <div class="bg-surface-white p-8 rounded-2xl border border-border-subtle hover:border-primary-container transition-all group amber-glow">
 <div class="w-16 h-16 bg-[#FFD700]/10 rounded-full flex items-center justify-center text-[#FFD700] mx-auto mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-4xl" style="font-variation-settings: &quot;FILL&quot; 1;">military_tech</span>
+<span class="material-symbols-outlined text-4xl" style='font-variation-settings: "FILL" 1;'>military_tech</span>
 </div>
 <h4 class="font-bold text-title-lg mb-2">Gold Badge</h4>
 <p class="text-label-sm text-text-muted mb-4 uppercase tracking-wider">Level 3</p>
@@ -557,10 +572,10 @@
 <div class="bg-primary rounded-3xl p-12 text-center text-on-primary space-y-8 relative overflow-hidden">
 <div class="absolute inset-0 opacity-10 pointer-events-none"></div>
 <div class="relative z-10 space-y-6">
-<h2 class="font-display-lg text-display-lg font-bold tracking-tight text-on-primary mb-8">Ihre Brauerei. <br><span class="text-primary-container">Sichtbar wo es zählt.</span></h2>
+<h2 class="font-display-lg text-display-lg font-bold tracking-tight text-on-primary mb-8">Ihre Brauerei. <br/><span class="text-primary-container">Sichtbar wo es zählt.</span></h2>
 <p class="text-on-primary/80 max-w-xl mx-auto">Erhalten Sie monatlich Insights zum Biermarkt und Updates zu unseren neuen Features.</p>
 <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Anmeldung!');">
-<input class="flex-grow px-6 py-4 rounded-xl text-text-main border-none focus:ring-2 focus:ring-white transition-all outline-none" placeholder="E-Mail Adresse" required="" type="email">
+<input class="flex-grow px-6 py-4 rounded-xl text-text-main border-none focus:ring-2 focus:ring-white transition-all outline-none" placeholder="E-Mail Adresse" required="" type="email"/>
 <button class="bg-inverse-surface text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-all" type="submit">Abonnieren</button>
 </form>
 <p class="text-xs text-on-primary/60">Durch die Anmeldung akzeptieren Sie unsere Datenschutzbestimmungen.</p>
@@ -574,9 +589,9 @@
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
 <div class="space-y-4">
 <div class="flex items-center gap-2">
-<img alt="BeerTasting Logo" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeH7JgJKKXej989QEF2QEVcz7Gojr5sulboSemIHPo8My9goPsZE7auilTwYMhof6PXNm88rkdR-NZwlnIXEr4xcK4tGs6Q66j1nowcn2e5YXFiZoQx1QPEOnoA9SvoVyBrEofbBW5mET1lbrMcFxw_Mj0tkx0z0dy5ZK7uPGAD2owkJ3MgYzY8nt7ug39WGAI6YpmY5z7ivj_8aW0c4rHOf0utbxhrDIsMw5MqWolhtCTsgQPWEMh7Dv_CAEUN_4AW-2d3UWvDUM">
+<img alt="BeerTasting Logo" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeH7JgJKKXej989QEF2QEVcz7Gojr5sulboSemIHPo8My9goPsZE7auilTwYMhof6PXNm88rkdR-NZwlnIXEr4xcK4tGs6Q66j1nowcn2e5YXFiZoQx1QPEOnoA9SvoVyBrEofbBW5mET1lbrMcFxw_Mj0tkx0z0dy5ZK7uPGAD2owkJ3MgYzY8nt7ug39WGAI6YpmY5z7ivj_8aW0c4rHOf0utbxhrDIsMw5MqWolhtCTsgQPWEMh7Dv_CAEUN_4AW-2d3UWvDUM"/>
 </div>
-<p class="text-secondary font-body-md">Kalea GmbH<br>Biberngasse 31a&nbsp;<br>5020 Salzburg, Österreich</p>
+<p class="text-secondary font-body-md">Kalea GmbH<br/>Biberngasse 31a <br/>5020 Salzburg, Österreich</p>
 </div>
 <div>
 <h4 class="font-bold text-primary mb-6">Plattform</h4>
@@ -622,16 +637,6 @@
         });
     });
 
-    // Simple header scroll effect
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.classList.add('shadow-md');
-        } else {
-            header.classList.remove('shadow-md');
-        }
-    });
-
     // KPI Counter Animation Logic
     (function() {
         const duration = 2000;
@@ -668,10 +673,7 @@
             }, interval);
         };
 
-        const observerOptions = {
-            threshold: 0.5
-        };
-
+        const observerOptions = { threshold: 0.5 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -683,18 +685,57 @@
         }, observerOptions);
 
         const statsBar = document.getElementById('stats-bar');
-        if (statsBar) {
-            observer.observe(statsBar);
-        }
+        if (statsBar) observer.observe(statsBar);
     })();
-</script>
-<script>
-    // Brewery Search Logic
+
+    // NEW Brewery Search Logic
     (function() {
         const input = document.getElementById('hero-brewery-search-input');
         const container = document.getElementById('hero-brewery-results-container');
         if (!input || !container) return;
+        
         let debounceTimer;
+
+        const formatCount = (num) => new Intl.NumberFormat('de-DE').format(num);
+        
+        const createResultCard = (b, isFirst) => {
+            if (isFirst) {
+                console.log('API Check:', b.rating, b.number_of_ratings);
+            }
+
+            const proxyBase = "https://wsrv.nl/?url=";
+            const imageUrl = b.image_url ? b.image_url.replace("https://", "") : "";
+            const proxySrc = b.image_url ? `${proxyBase}${imageUrl}&w=44&h=44&fit=cover` : null;
+            
+            const rating = b.rating ? b.rating.toFixed(2) : 'k.A.';
+            const ratingCount = b.number_of_ratings ? b.number_of_ratings.toLocaleString('de-DE') : '0';
+            
+            return `
+                <div class="flex items-center gap-3 bg-white border border-outline-variant/30 rounded-lg p-3 w-full shadow-sm">
+                    <div class="flex-shrink-0">
+                        ${proxySrc ? 
+                            `<img src="${proxySrc}" class="w-[44px] h-[44px] rounded-full object-cover border border-outline-variant/20" alt="${b.name}" data-proxy-src="${proxySrc}">` : 
+                            `<div class="w-[44px] h-[44px] rounded-full bg-surface-dim flex items-center justify-center text-text-muted font-bold text-lg">${b.name.charAt(0)}</div>`
+                        }
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <h4 class="text-[15px] font-medium text-text-main truncate">${b.name}</h4>
+                        <p class="text-[11px] font-bold text-text-muted uppercase tracking-wider">${b.country_name || 'Unbekannt'}</p>
+                        <div class="flex items-center gap-1 text-[13px] text-text-muted mt-0.5">
+                            <span class="font-medium">⭐ ${rating} · ${ratingCount} Bewertungen</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end gap-1.5 flex-shrink-0">
+                        <a href="https://www.beertasting.com/de/breweries/${b.slug}" target="_blank" class="text-[13px] font-bold text-[#f59e0b] hover:underline flex items-center gap-0.5">
+                            Profil ansehen <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                        </a>
+                        <a href="https://business.beertasting.com/kontakt" class="px-3 py-1 border border-outline-variant rounded-md text-[13px] font-medium text-text-main hover:bg-surface-container-low transition-colors">
+                            Profil claimen
+                        </a>
+                    </div>
+                </div>
+            `;
+        };
 
         input.addEventListener('input', (e) => {
             clearTimeout(debounceTimer);
@@ -705,7 +746,12 @@
                 return;
             }
 
-            container.innerHTML = '<div class="p-6 text-center"><div class="animate-spin inline-block w-5 h-5 border-2 border-primary border-t-transparent rounded-full mb-2"></div><p class="text-xs text-text-muted">Suche...</p></div>';
+            container.innerHTML = `
+                <div class="p-8 text-center flex flex-col items-center gap-2">
+                    <div class="animate-spin w-6 h-6 border-2 border-primary-container border-t-transparent rounded-full"></div>
+                    <p class="text-sm text-text-muted">Suche...</p>
+                </div>
+            `;
 
             debounceTimer = setTimeout(() => {
                 fetch(`https://www.beertasting.com/api/v1/public/search?query=${encodeURIComponent(query)}&types=brewery`)
@@ -713,23 +759,21 @@
                     .then(data => {
                         const breweries = data.data || [];
                         if (breweries.length === 0) {
-                            container.innerHTML = '<div class="p-6 text-center text-text-muted text-sm">Keine Brauerei gefunden.</div>';
+                            container.innerHTML = '<div class="p-10 text-center text-text-muted text-sm">Keine Brauerei gefunden.</div>';
                             return;
                         }
 
-                        container.innerHTML = breweries.map(brewery => `
-                            <div class="flex items-center gap-3 p-3 border-b border-outline-variant hover:bg-surface-container-low transition-colors">
-                                <img src="${brewery.image || 'https://www.beertasting.com/assets/img/placeholder-brewery.png'}" class="w-8 h-8 rounded-full object-cover border border-outline-variant" alt="${brewery.name}">
-                                <div class="flex-grow">
-                                    <h4 class="text-sm font-bold text-text-main">${brewery.name}</h4>
-                                    <p class="text-[10px] text-text-muted">${brewery.country_name || ''}</p>
-                                </div>
-                                <a href="https://www.beertasting.com/de/breweries/${brewery.slug}" target="_blank" class="text-primary text-xs font-bold hover:underline">Profil</a>
-                            </div>
-                        `).join('');
+                        container.innerHTML = breweries.map((b, index) => createResultCard(b, index === 0)).join('');
+                        
+                        // Log proxySrc of first result
+                        const firstImg = container.querySelector('img[data-proxy-src]');
+                        if (firstImg) {
+                            console.log('Proxy Source (First Result):', firstImg.getAttribute('data-proxy-src'));
+                        }
                     })
                     .catch(err => {
-                        container.innerHTML = '<div class="p-6 text-center text-error text-xs">Fehler bei der Suche.</div>';
+                        console.error('Search error:', err);
+                        container.innerHTML = '<div class="p-10 text-center text-error text-sm">Verbindung fehlgeschlagen. Bitte erneut versuchen.</div>';
                     });
             }, 300);
         });
@@ -748,11 +792,11 @@
 <form class="space-y-4" id="trend-report-form">
 <div class="space-y-1">
 <label class="text-label-sm font-bold text-text-main uppercase">Name der Brauerei</label>
-<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" placeholder="Brauerei Name" required="" type="text">
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" placeholder="Brauerei Name" required="" type="text"/>
 </div>
 <div class="space-y-1">
 <label class="text-label-sm font-bold text-text-main uppercase">E-Mail-Adresse</label>
-<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" placeholder="ihre@email.de" required="" type="email">
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" placeholder="ihre@email.de" required="" type="email"/>
 </div>
 <button class="w-full bg-primary-container text-white py-4 rounded-xl font-bold hover:opacity-90 transition-all shadow-md" type="submit">Report jetzt herunterladen</button>
 </form>
@@ -789,8 +833,8 @@
             form.reset();
         }
         
-        trigger.addEventListener('click', openModal);
-        closeBtn.addEventListener('click', closeModal);
+        if (trigger) trigger.addEventListener('click', openModal);
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
         modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
         form.addEventListener('submit', (e) => { 
             e.preventDefault(); 
@@ -800,8 +844,4 @@
         });
     })();
 </script>
-
-
-
-
 </body></html>
