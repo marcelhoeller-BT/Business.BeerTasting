@@ -140,9 +140,9 @@
 <a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#">BeerTasting App</a>
 </div>
 <div class="flex items-center gap-4">
-<a href="mailto:info@beertasting.com" class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold hover:opacity-90 transition-opacity font-label-md text-label-md">
+<button id="contact-trigger" class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold hover:opacity-90 transition-opacity font-label-md text-label-md">
                 Kontakt
-            </a>
+            </button>
 <button class="lg:hidden p-2 text-secondary">
 <span class="material-symbols-outlined">menu</span>
 </button>
@@ -872,4 +872,109 @@
 
 
 
+<!-- Contact Modal -->
+<div class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm" id="contact-modal">
+<div class="bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden border border-border-subtle relative" style="box-shadow: 0 4px 24px -1px rgba(245,158,11,0.2);">
+<button class="absolute top-4 right-4 text-text-muted hover:text-text-main transition-colors" id="close-contact-modal">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="p-8 space-y-6">
+<div class="text-center space-y-2">
+<div class="w-12 h-12 bg-primary-container/10 rounded-xl flex items-center justify-center mx-auto mb-2">
+<span class="material-symbols-outlined text-primary-container">mail</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-text-main">Kontakt aufnehmen</h3>
+<p class="text-text-muted text-body-md">Fragen oder Interesse an einer Partnerschaft? Wir melden uns zeitnah.</p>
+</div>
+<form class="space-y-4" id="contact-form">
+<div class="space-y-1">
+<label class="text-label-sm font-bold text-text-main uppercase tracking-wider">Name</label>
+<input name="name" class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all font-body-md" placeholder="Ihr Name" required type="text">
+</div>
+<div class="space-y-1">
+<label class="text-label-sm font-bold text-text-main uppercase tracking-wider">Brauerei / Unternehmen</label>
+<input name="unternehmen" class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all font-body-md" placeholder="Name Ihrer Brauerei" type="text">
+</div>
+<div class="space-y-1">
+<label class="text-label-sm font-bold text-text-main uppercase tracking-wider">E-Mail-Adresse</label>
+<input name="email" class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all font-body-md" placeholder="ihre@email.de" required type="email">
+</div>
+<div class="space-y-1">
+<label class="text-label-sm font-bold text-text-main uppercase tracking-wider">Nachricht</label>
+<textarea name="nachricht" rows="4" class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all resize-none font-body-md" placeholder="Ihre Nachricht an uns..." required></textarea>
+</div>
+<button id="contact-submit-btn" class="w-full bg-primary-container text-white py-4 rounded-xl font-bold hover:opacity-90 transition-all shadow-md" type="submit">Nachricht senden</button>
+</form>
+<div class="hidden text-center py-6 space-y-4" id="contact-success">
+<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center mx-auto">
+<span class="material-symbols-outlined text-4xl text-primary-container">mark_email_read</span>
+</div>
+<h4 class="font-bold text-title-lg text-text-main">Nachricht gesendet!</h4>
+<p class="text-text-muted">Vielen Dank — wir melden uns so schnell wie möglich bei Ihnen.</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+(function(){
+    const modal   = document.getElementById('contact-modal');
+    const trigger = document.getElementById('contact-trigger');
+    const closeBtn= document.getElementById('close-contact-modal');
+    const form    = document.getElementById('contact-form');
+    const success = document.getElementById('contact-success');
+    const btn     = document.getElementById('contact-submit-btn');
+
+    function openModal(){
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow='hidden';
+    }
+    function closeModal(){
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow='';
+        form.classList.remove('hidden');
+        success.classList.add('hidden');
+        form.reset();
+        btn.textContent='Nachricht senden';
+        btn.disabled=false;
+    }
+
+    trigger.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        btn.textContent='Wird gesendet...';
+        btn.disabled=true;
+        fetch('https://formspree.io/f/xeebeege',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({
+                name:        form.querySelector('[name=name]').value,
+                unternehmen: form.querySelector('[name=unternehmen]').value,
+                email:       form.querySelector('[name=email]').value,
+                nachricht:   form.querySelector('[name=nachricht]').value
+            })
+        })
+        .then(r=>{
+            if(r.ok){
+                form.classList.add('hidden');
+                success.classList.remove('hidden');
+                setTimeout(closeModal, 3000);
+            } else {
+                alert('Fehler beim Senden. Bitte erneut versuchen.');
+                btn.textContent='Nachricht senden';
+                btn.disabled=false;
+            }
+        })
+        .catch(()=>{
+            alert('Verbindung fehlgeschlagen. Bitte erneut versuchen.');
+            btn.textContent='Nachricht senden';
+            btn.disabled=false;
+        });
+    });
+})();
+</script>
 </body></html>
