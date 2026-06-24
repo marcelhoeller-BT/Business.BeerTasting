@@ -727,9 +727,9 @@
                         <a href="https://www.beertasting.com/de/brewery/${b.slug}" target="_blank" class="text-[13px] font-bold text-[#f59e0b] hover:underline flex items-center gap-0.5">
                             Profil ansehen <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
                         </a>
-                        <a href="https://business.beertasting.com/kontakt" class="px-3 py-1 border border-outline-variant rounded-md text-[13px] font-medium text-text-main hover:bg-surface-container-low transition-colors">
+                        <button type="button" onclick="window.openContactModal(this.dataset.brewery)" data-brewery="${(b.name || '').replace(/"/g, '&quot;')}" class="px-3 py-1 border border-outline-variant rounded-md text-[13px] font-medium text-text-main hover:bg-surface-container-low transition-colors">
                             Profil claimen
-                        </a>
+                        </button>
                     </div>
                 </div>
             `;
@@ -924,11 +924,20 @@
     const success = document.getElementById('contact-success');
     const btn     = document.getElementById('contact-submit-btn');
 
-    function openModal(){
+    function openModal(breweryName){
         modal.classList.remove('hidden');
         modal.classList.add('flex');
         document.body.style.overflow='hidden';
+        const unternehmenField = form.querySelector('[name=unternehmen]');
+        if (breweryName && typeof breweryName === 'string' && unternehmenField) {
+            unternehmenField.value = breweryName;
+            const nachrichtField = form.querySelector('[name=nachricht]');
+            if (nachrichtField && !nachrichtField.value) {
+                nachrichtField.value = 'Ich möchte das Profil der Brauerei "' + breweryName + '" claimen.';
+            }
+        }
     }
+    window.openContactModal = openModal;
     function closeModal(){
         modal.classList.add('hidden');
         modal.classList.remove('flex');
@@ -940,7 +949,7 @@
         btn.disabled=false;
     }
 
-    trigger.addEventListener('click', openModal);
+    trigger.addEventListener('click', ()=>openModal());
     closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
 
