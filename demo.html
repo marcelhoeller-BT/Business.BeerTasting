@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de" style=""><head></head><body class="bg-background text-on-background font-body-md min-h-screen flex flex-col"><svg aria-hidden="true" class="inline-defs-container" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brauerei Dashboard - Privatbrauerei Ettl</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#f5c842",
+                        "background": "#f9f9ff",
+                        "surface-variant": "#d8e3fb",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#eec13c",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#cfdaf2",
+                        "secondary": "#505f76",
+                        "surface": "#f9f9ff",
+                        "inverse-primary": "#eec13c",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "surface-container-high": "#dee8ff",
+                        "tertiary": "#5c5f61",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-primary-container": "#6c5400",
+                        "surface-tint": "#755b00",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#ffe08f",
+                        "inverse-surface": "#263143",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "secondary-container": "#d0e1fb",
+                        "on-primary-fixed": "#241a00",
+                        "primary": "#755b00",
+                        "tertiary-container": "#cbcdcf",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-background": "#111c2d",
+                        "outline-variant": "#d1c5ae",
+                        "tertiary-fixed": "#e0e3e5",
+                        "on-secondary-container": "#54647a",
+                        "surface-container": "#e7eeff",
+                        "on-primary-fixed-variant": "#584400",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "inverse-on-surface": "#ecf1ff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "on-tertiary-container": "#545759",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-surface-variant": "#4e4634",
+                        "outline": "#7f7662",
+                        "on-surface": "#111c2d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-x": "32px",
+                        "card-padding": "24px",
+                        "label-column-width": "300px",
+                        "container-max": "1280px",
+                        "section-gap": "48px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d1c5ae; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #7f7662; 
+        }
+    </style>
+<!-- 1. HEADER (Predicted TopNavBar structure) -->
+<nav class="bg-surface-container-lowest border-b border-outline-variant w-full sticky top-0 z-50">
+<div class="max-w-container-max mx-auto px-margin-x py-4 flex items-center justify-between">
+<!-- Brand Logo -->
+<div class="flex items-center gap-2"><img alt="BeerTasting for Business" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdT547WTw_0JAMxQX2Jp-VGiyVeb4WibSq8PBZCKMIoFLtDViWWM3Os2hACmrGjZaIdncl-K32YAfXPRT5HCoeab9myfB8yTZSgV7u7pFDEoiy0Zj7YHWuUEoneoA1Hxy4Sj3TQ5L407hBAF9BNrBWr0f5zw0VecboAgcD5hHtsVgSLAH_-6Jkxcna5P3q-Vc1bPyH7V_w_CubugWygK7CIDdKhv6j4AX0lQn4zbyzRNuNL4gqKU4Td4NVALUGIz-3sHZ9yXHWrEI"/></div>
+<!-- Search Bar (on_left as per json, but centered in layout for balance) -->
+<div class="hidden md:flex flex-1 max-w-md mx-8">
+<div class="relative w-full">
+<input class="w-full pl-4 pr-10 py-2 rounded-full border border-outline-variant bg-surface focus:outline-none focus:ring-2 focus:ring-primary-container text-body-md font-body-md text-on-surface transition-all" placeholder="Bier, Brauereien, etc. suchen" type="text"/>
+<button class="absolute right-1 top-1 bottom-1 bg-primary-container rounded-full w-8 h-8 flex items-center justify-center text-on-primary-container hover:bg-primary-fixed-dim transition-colors">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</button>
+</div>
+</div>
+<!-- Navigation Links (Hidden on mobile) -->
+<div class="hidden lg:flex items-center gap-6">
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Dashboard</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#">Bier-Statistiken</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#">Rezensionen</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#">Einstellungen</a>
+</div>
+<!-- Trailing Icons -->
+</div>
+</nav>
+<!-- Sub-Header -->
+<div class="bg-surface-container-lowest border-b border-outline-variant shadow-sm py-6">
+<div class="max-w-container-max mx-auto px-margin-x flex justify-between items-end">
+<div>
+<div class="flex items-center gap-2 text-secondary font-label-sm text-label-sm mb-2">
+<span class="hover:text-primary cursor-pointer">Home</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="">Dashboard</span>
+</div>
+<h1 class="font-headline-xl text-headline-lg text-on-surface">Brauerei Dashboard</h1>
+<p class="font-body-md text-body-md text-secondary mt-1">Privatbrauerei Ettl</p>
+</div>
+<button class="bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-md text-label-md px-6 py-2 rounded-lg transition-all shadow-sm hover:shadow flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                Export
+            </button>
+</div>
+</div>
+<!-- Main Content Canvas -->
+<main class="flex-1 max-w-container-max w-full mx-auto px-margin-x py-section-gap flex flex-col gap-section-gap">
+<!-- 2. OVERVIEW (KPI Row) -->
+<section>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-secondary">Gesamtbewertungen</span>
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">reviews</span>
+</div>
+</div>
+<div class="font-headline-md text-headline-lg text-on-surface">13.760</div>
+<div class="flex items-center gap-1 mt-2 text-green-600 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span class="">+12% diesen Monat</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-secondary">Ø Bewertung</span>
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px] text-yellow-600">star</span>
+</div>
+</div>
+<div class="font-headline-md text-headline-lg text-on-surface flex items-baseline gap-1">
+                        3.41 <span class="text-yellow-500 text-[24px]">★</span>
+</div>
+<div class="flex items-center gap-1 mt-2 text-secondary font-label-sm text-label-sm">
+<span class="">Basierend auf allen Bieren</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-secondary">Biere im Portfolio</span>
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">sports_bar</span>
+</div>
+</div>
+<div class="font-headline-md text-headline-lg text-on-surface">24</div>
+<div class="flex items-center gap-1 mt-2 text-secondary font-label-sm text-label-sm">
+<span class="">Aktiv gelistet</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-secondary">Profilaufrufe (30 Tage)</span>
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</div>
+</div>
+<div class="font-headline-md text-headline-lg text-on-surface">4.812</div>
+<div class="flex items-center gap-1 mt-2 text-green-600 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span class="">+5% vs. Vormonat</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. REGIONS-HEATMAP & 4. BEER STATISTICS TABLE (Side-Label Pattern Approach) -->
+<div class="flex flex-col lg:flex-row gap-section-gap">
+<!-- Side Label / Left Column -->
+<div class="w-full lg:w-label-column-width shrink-0">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Statistiken</h2>
+<p class="font-body-md text-body-md text-secondary">Detaillierte Einsichten in die Performance Ihrer Biere und deren regionale Verteilung.</p>
+</div>
+<!-- Right Column Content -->
+<div class="flex-1 flex flex-col gap-gutter">
+<!-- Filter Controls -->
+<div class="flex flex-wrap items-center gap-3 bg-surface-container-lowest p-4 rounded-xl border border-outline-variant shadow-sm">
+<span class="font-label-md text-label-md text-on-surface mr-2 font-bold">Filter:</span>
+<select class="form-select rounded-full border-outline-variant text-label-sm font-label-sm py-1.5 pl-4 pr-8 focus:ring-primary-container focus:border-primary-container bg-surface">
+<option>Bierstil</option>
+<option>Helles</option>
+<option>Weißbier</option>
+</select>
+<select class="form-select rounded-full border-outline-variant text-label-sm font-label-sm py-1.5 pl-4 pr-8 focus:ring-primary-container focus:border-primary-container bg-surface">
+<option>Nach Bewertung</option>
+<option>Höchste zuerst</option>
+<option>Niedrigste zuerst</option>
+</select>
+<select class="form-select rounded-full border-outline-variant text-label-sm font-label-sm py-1.5 pl-4 pr-8 focus:ring-primary-container focus:border-primary-container bg-surface">
+<option>Nach Bewertungsanzahl</option>
+</select>
+<button class="text-secondary hover:text-on-surface font-label-sm text-label-sm underline ml-auto transition-colors">Auswahl zurücksetzen</button>
+</div>
+<!-- BEER STATISTICS TABLE -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-card-padding border-b border-outline-variant bg-surface-bright flex justify-between items-center">
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface">Alle Biere</h3>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse min-w-[800px]">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="p-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider w-12">#</th>
+<th class="p-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider">Bier</th>
+<th class="p-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider">Gesamt</th>
+<th class="p-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider">Farbe/Schaum <span class="text-xs font-normal opacity-70">(10%)</span></th>
+<th class="p-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider">Geruch <span class="text-xs font-normal opacity-70">(30%)</span></th>
+<th class="p-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider">Geschmack <span class="text-xs font-normal opacity-70">(60%)</span></th>
+<th class="p-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider">Etikett <span class="text-xs font-normal opacity-70">(0%)</span></th>
+<th class="p-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider text-right">Bewertungen</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-label-md text-on-surface divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="p-4 text-secondary">1</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-6 h-10 bg-surface-variant rounded flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Kellerbier Bottle" class="h-full object-contain" data-alt="A small clear glass bottle filled with golden amber beer, simple minimalist white label, isolated on white background, studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3vpKOryeB7OZObaFt6gz92efqLd1mDC8A8TY9W1b5hMeJWFP92LDea7slNIgOQrHYmhIpWtnXTyE6B6so5kYyZgTIgY6gkKYdoXA3U9-22mCw5KXiC8Lyg7RrRQPhVrkcmiOTt9GFdbebgB5NROtDWWF6UkYu79I7Oe15aOB8Y3i7t20P9HH3rKGv0rqe8GsY0ARxDf9txrplYs88uuPUSuaA8geXP_q0jDqRdeRBgZbw7rS5SOhrCnReW1lIjnSndWTLYvRxfB4"/>
+</div>
+<span class="font-medium">Ettl - Kellerbier</span>
+</td>
+<td class="p-4 font-semibold">3.38 <span class="text-yellow-500 text-xs">★</span></td>
+<td class="p-4">3.28</td>
+<td class="p-4">3.32</td>
+<td class="p-4">3.42</td>
+<td class="p-4">3.63</td>
+<td class="p-4 text-right text-secondary">5812</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface hover:bg-surface-container-lowest transition-colors group">
+<td class="p-4 text-secondary">2</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-6 h-10 bg-surface-variant rounded flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Festbier Bottle" class="h-full object-contain" data-alt="A small brown glass beer bottle, traditional blue and white label design, condensation drops on glass, isolated on clean background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRIlxQf3BfREEmlueCpm87ptEzvmz6SnRMzKfeh37ZrII5RUyY_l8Uz75gap3ykngDTaO3i1uL8FGg4x5zu0maQPHFftBO3jeMvyv0h8-6lyvW-d43MWNB7kyyEyWQ2Ey-Y9N3U_nXKGh43lTLKAvvF98vXCtNIfqp5Y3pJk6dZLt9VEfwZPA3jmoKt5nQN7pMOV3BtjgDshyJ8IVLephf_wcu9RJtBH_cRKTvJMOcyAWZwx6Rx0KeJAUb8Dk6O_-3ikbzaPpMLB4"/>
+</div>
+<span class="font-medium">Ettl - Festbier</span>
+</td>
+<td class="p-4 font-semibold">3.41 <span class="text-yellow-500 text-xs">★</span></td>
+<td class="p-4">3.4</td>
+<td class="p-4">3.33</td>
+<td class="p-4">3.45</td>
+<td class="p-4">3.52</td>
+<td class="p-4 text-right text-secondary">3794</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="p-4 text-secondary">3</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-6 h-10 bg-surface-variant rounded flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Helles Bottle" class="h-full object-contain" data-alt="A classic green beer bottle with a bright yellow label, light reflecting off the glass, clean and modern product photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8y6LjF254T8Mi5bxtSBA7xEcbknu2GOEYtEcH3FsXPg9dztSOA1EeRQgfdF7-PUswVFj_EF6MBoDdTGH5JCgWnfx3mA0QFvjeQCqY0MU_nC2wE9NASYCoau8O2KronP-sX2QNaMYG0oD3so8_x1bN04TwE5xqIbZWAR9Et7LpiouwPmWGh2GCr4HL6nnGjHysZqGqXaacmejjvrUtQd4UrJ24L4Hd4hp5DLrPE238TyQMbzFfwgeW4nTcpGQ_IEfeiHRQ2hwIWF8"/>
+</div>
+<span class="font-medium">Ettl - Helles</span>
+</td>
+<td class="p-4 font-semibold">3.38 <span class="text-yellow-500 text-xs">★</span></td>
+<td class="p-4">3.39</td>
+<td class="p-4">3.33</td>
+<td class="p-4">3.41</td>
+<td class="p-4">3.55</td>
+<td class="p-4 text-right text-secondary">2044</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-surface hover:bg-surface-container-lowest transition-colors group">
+<td class="p-4 text-secondary">4</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-6 h-10 bg-surface-variant rounded flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Weißbier Bottle" class="h-full object-contain" data-alt="A tall wheat beer bottle with condensation, amber liquid visible, traditional Bavarian label styling, bright even lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrZ-Cm9yJFB9i7tTZGU-ddr0wAAVwG8GebOVHgzIM9BflGwNN49gnlzX9DUJeAb6jEAAptcW5zjUK3-H794ekxfMzu9CSivuEvaPzTb9cOEi14-9JB61CTJJ71I1pXIvrosxGZxn8Pgik-f9WVKXdnl_8YfuqzaKpaCxpGyI4KDHKEr-dugGX_bdQgT14A5TOaO0INw5AgOEyMWSOZotmCXqnDgDRiYMUrjcYyG9SO4PFI-ui8aAbQNOvuqnMCQvsfqxlOWzel8xs"/>
+</div>
+<span class="font-medium">Ettl - Weißbier</span>
+</td>
+<td class="p-4 font-semibold">3.42 <span class="text-yellow-500 text-xs">★</span></td>
+<td class="p-4">3.43</td>
+<td class="p-4">3.38</td>
+<td class="p-4">3.43</td>
+<td class="p-4">3.49</td>
+<td class="p-4 text-right text-secondary">835</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="p-4 text-secondary">5</td>
+<td class="p-4 flex items-center gap-3">
+<div class="w-6 h-10 bg-surface-variant rounded flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Weißbier Alkoholfrei Bottle" class="h-full object-contain grayscale opacity-80" data-alt="A wheat beer bottle with a blue and white label indicating non-alcoholic, frosty glass texture, clean bright background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFtYhNekchLkDRIBdTylyo3i_9gW4YfKTs5mfMo42HFje23O0Y0g9BboseDW1iJpd0AEV2Z0eJoYBwz7ZHfuU__DrRVaf7UgF5A_jvbxMX1BGxdkUWeKBW4ZxfOLqRsGBzrExye5MTMqw1t20F9EescgekOHWXdRa6z2MGkzCRcP7RrnXGPbu5qffIcHcWANrnXSvS2nlhS7cC_WEXuHDoL8eNYW7hUTQ_UaAy0NvH4CdF5dP9_SdhX2gmW6n67loAbdtC7XfSDW8"/>
+</div>
+<span class="font-medium">Ettl - Weißbier Alkoholfrei</span>
+</td>
+<td class="p-4 font-semibold">2.88 <span class="text-yellow-500 text-xs">★</span></td>
+<td class="p-4">3.11</td>
+<td class="p-4">2.85</td>
+<td class="p-4">2.86</td>
+<td class="p-4">3.17</td>
+<td class="p-4 text-right text-secondary">137</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 border-t border-outline-variant flex justify-center items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center text-secondary hover:text-primary transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-primary-container text-on-primary-container font-label-sm font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-variant text-secondary font-label-sm transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- 5. TREND CHART & 6. COMPETITOR BEERS (Bento Grid Style) -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+<!-- Trend Chart Area (Spans 2 columns on large screens) -->
+<div class="xl:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-sm flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface">Detaillierte Statistik</h3>
+<select class="form-select rounded-full border-primary text-primary font-label-sm py-1 pl-3 pr-8 bg-primary-fixed-dim bg-opacity-20 focus:ring-primary focus:border-primary">
+<option>Ettl - Helles Alkoholfrei</option>
+<option>Ettl - Kellerbier</option>
+</select>
+</div>
+<!-- Simulated Chart Canvas Area using CSS gradient to represent the Area Chart -->
+<div class="relative w-full h-48 mt-auto border-b border-outline-variant flex items-end">
+<!-- SVG Area Graph representation -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,80 Q10,75 20,85 T40,70 T60,85 T80,40 T100,70 L100,100 L0,100 Z" fill="url(#amberGradient)" opacity="0.3"></path>
+<path d="M0,80 Q10,75 20,85 T40,70 T60,85 T80,40 T100,70" fill="none" stroke="#F5C842" stroke-width="2"></path>
+<defs>
+<lineargradient id="amberGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#F5C842"></stop>
+<stop offset="100%" stop-color="#F5C842" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- X Axis Labels -->
+<div class="absolute -bottom-6 w-full flex justify-between text-[10px] text-secondary px-2">
+<span class="">Jun</span><span class="">Jul</span><span class="">Aug</span><span class="">Sep</span><span class="">Okt</span><span class="">Nov</span><span class="">Dez</span><span class="">Jan</span><span class="">Feb</span><span class="">Mär</span><span class="">Apr</span><span class="">Mai</span>
+</div>
+</div>
+<!-- Metric Row Below Chart -->
+<div class="flex justify-between mt-10 pt-4 border-t border-outline-variant">
+<div>
+<div class="text-[10px] text-secondary uppercase tracking-wider mb-1">Bewertung</div>
+<div class="font-bold text-on-surface flex items-center gap-1">3.23 <span class="text-yellow-500 text-[10px]">★</span></div>
+</div>
+<div>
+<div class="text-[10px] text-secondary uppercase tracking-wider mb-1">Farbe</div>
+<div class="font-bold text-on-surface">3.28</div>
+</div>
+<div>
+<div class="text-[10px] text-secondary uppercase tracking-wider mb-1">Geruch</div>
+<div class="font-bold text-on-surface">3.21</div>
+</div>
+<div>
+<div class="text-[10px] text-secondary uppercase tracking-wider mb-1">Geschmack</div>
+<div class="font-bold text-on-surface">3.23</div>
+</div>
+<div>
+<div class="text-[10px] text-secondary uppercase tracking-wider mb-1">Etikett</div>
+<div class="font-bold text-on-surface">3.61</div>
+</div>
+</div>
+</div>
+<!-- Heatmap / Regionale Verteilung (Moved here for better Bento layout) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-sm flex flex-col">
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-4">Regionale Verteilung</h3>
+<div class="relative flex-1 bg-surface-container-low rounded-lg border border-outline-variant flex items-center justify-center p-4 min-h-[200px] overflow-hidden">
+<!-- Decorative map representation -->
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #755b00 1px, transparent 0); background-size: 16px 16px;"></div>
+<div class="relative z-10 w-full">
+<!-- Simple Bar chart representing regions instead of complex SVG map for clean UI -->
+<div class="space-y-3 w-full">
+<div class="flex items-center gap-2">
+<div class="w-16 text-xs text-secondary font-medium">Bayern</div>
+<div class="flex-1 h-3 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 85%"></div>
+</div>
+<div class="w-10 text-right text-xs font-bold text-on-surface">4.230</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-16 text-xs text-secondary font-medium">Baden-W.</div>
+<div class="flex-1 h-3 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary opacity-80" style="width: 45%"></div>
+</div>
+<div class="w-10 text-right text-xs font-bold text-on-surface">2.100</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-16 text-xs text-secondary font-medium">Salzburg</div>
+<div class="flex-1 h-3 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary opacity-60" style="width: 20%"></div>
+</div>
+<div class="w-10 text-right text-xs font-bold text-on-surface">890</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-16 text-xs text-secondary font-medium">Wien</div>
+<div class="flex-1 h-3 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary opacity-50" style="width: 15%"></div>
+</div>
+<div class="w-10 text-right text-xs font-bold text-on-surface">760</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-16 text-xs text-secondary font-medium">Sachsen</div>
+<div class="flex-1 h-3 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary opacity-40" style="width: 10%"></div>
+</div>
+<div class="w-10 text-right text-xs font-bold text-on-surface">540</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Competitor Beers -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface">Konkurrenz-Biere von Ettl - Helles Alkoholfrei</h3>
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-secondary hover:bg-outline-variant transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+<!-- Card 1 -->
+<div class="bg-surface rounded-lg p-4 border border-outline-variant flex flex-col items-center text-center hover:shadow-md transition-shadow">
+<div class="h-32 mb-3 flex items-center justify-center">
+<img alt="Jever Fun" class="h-full object-contain mix-blend-multiply" data-alt="A green beer bottle with 'Jever Fun' label, non-alcoholic pilsner, studio lighting against white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgKPfNZz5s8wwBaBzQc2FWz5ReD_q7CcqKEFxW1jMf_hAufDo-5hyZL4QEbveJhNHJO9KKVtTRn4LU3nUt4SctUR0N18AJGFV0n8W2Y8OVPHmyhUT-QNkExztVy2Hb64OmnHgAGY9BlLBVE_rv4yvoAQvjhI8-3NH48C2QFaHar5belhOPoYmz7e3IF2WI5Hl54UNOXVRL4tBA0NYqfGgWXutSqOLcxWQzUslizwj3WAVxYNH1-JCuH9Q9TKhnnYbv7ddKabTGD7o"/>
+</div>
+<div class="text-xs font-bold mb-1 flex items-center gap-1">3.02 <span class="text-yellow-500">★</span> <span class="text-secondary font-normal">(2574)</span></div>
+<div class="font-label-md text-label-sm font-bold text-on-surface leading-tight">Jever - Fun</div>
+<div class="text-[10px] text-secondary mt-1">Pils Alkoholfrei<br/><span class="inline-block w-2 h-2 rounded-full bg-red-800 mr-1 mt-1"></span>0,3% vol.</div>
+<div class="mt-auto pt-3 text-[10px] text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">visibility</span> 327</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-lg p-4 border border-outline-variant flex flex-col items-center text-center hover:shadow-md transition-shadow">
+<div class="h-32 mb-3 flex items-center justify-center">
+<img alt="Wittmann Urhell" class="h-full object-contain mix-blend-multiply" data-alt="A brown beer bottle with traditional Bavarian label, Wittmann Urhell Alkoholfrei, clean product shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJxdrBeUi1P8EEIbJTSnwYoQvlXEf2fI9YHUQrtkXzdeRmPDYoIyzke9VvXdZLOLSDZYKVZ2Z2EsmJVfmADHPALWgPe5m0ImJLe9yEFSDn39qqaSnFgYczm0uwlyPfCIKyGUoSlaTHeJhr-aF-7oFd9f6_2W7Eqo6Ptbq5ed1xDn-Ax8mj3zvCr6H1fEiDsMY7aNvhs_fbHiObImLS1iBJq48ODZrVF1svpHnajNyKXj7Q06bxqLrPRMtTvuQsGXTXtfSthPh7jLs"/>
+</div>
+<div class="text-xs font-bold mb-1 flex items-center gap-1">2.91 <span class="text-yellow-500">★</span> <span class="text-secondary font-normal">(43)</span></div>
+<div class="font-label-md text-label-sm font-bold text-on-surface leading-tight">Wittmann - Urhell Alkoholfrei</div>
+<div class="text-[10px] text-secondary mt-1">Helles Lager Alkoholfrei<br/><span class="inline-block w-2 h-2 rounded-full bg-red-800 mr-1 mt-1"></span>0,5% vol.</div>
+<div class="mt-auto pt-3 text-[10px] text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">visibility</span> 295</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface rounded-lg p-4 border border-outline-variant flex flex-col items-center text-center hover:shadow-md transition-shadow">
+<div class="h-32 mb-3 flex items-center justify-center">
+<img alt="Augustiner Alkoholfrei" class="h-full object-contain mix-blend-multiply" data-alt="A classic Augustiner shaped beer bottle, blue non-alcoholic label, clean crisp background." data-row="Augustiner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH52bGgwLxVf9kGUs8glAkopL2oahHd_6hI3K_RuErxQBeEtgyKMfO1k540-pXUziBEb8dXAbA1VWHowl_LmdCLY_MJsnf0RSIkMOaF9WfIH_BKflnoRsS5Vu3O7RIjpMmugzXud1LYGKtYdDbqek3W2MEpTqPx2SG8utkvxPhi2uaNiDaZMwZULfEbe-IA_CPIBlsJahb49BP49-7V4lsobXhY5fCNiEdSRQCSwo4CP2P2psWV1wXs-lOFxZQE_WJv-lbPgtn0aU"/>
+</div>
+<div class="text-xs font-bold mb-1 flex items-center gap-1">3.68 <span class="text-yellow-500">★</span> <span class="text-secondary font-normal">(949)</span></div>
+<div class="font-label-md text-label-sm font-bold text-on-surface leading-tight">Augustiner - Alkoholfrei Hell</div>
+<div class="text-[10px] text-secondary mt-1">Helles Lager Alkoholfrei<br/><span class="inline-block w-2 h-2 rounded-full bg-red-800 mr-1 mt-1"></span>0,5% vol.</div>
+<div class="mt-auto pt-3 text-[10px] text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">visibility</span> 274</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface rounded-lg p-4 border border-outline-variant flex flex-col items-center text-center hover:shadow-md transition-shadow hidden md:flex">
+<div class="h-32 mb-3 flex items-center justify-center">
+<img alt="Beck's Blue" class="h-full object-contain mix-blend-multiply" data-alt="A green beer bottle with Beck's Blue label, condensation, non-alcoholic pilsner style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXtusyz-xIbSM0A1Cl_cz-nWtEqMTcsiobZuPfDRcUlkceqSeRQnzgH-D6gkn4KRcneslCZWXyjvBoLnnnD7qEOVfFyt0ieaXwdeey-n9iCUgFD21cr0CtsR26cmzi7LwvU8N-pfBWFlVd8YLJQEoyn5-oWY3CGB95ihtTlmM1iAns5L0mTJMBdM-IN3MFeOmBS_LVtm33goDjjHkYEgdHOWI7EEx0oMCJrAietqsdJaUDbeucAnGWIKMcbzJu8cKAlX5y8OJKidM"/>
+</div>
+<div class="text-xs font-bold mb-1 flex items-center gap-1">2.86 <span class="text-yellow-500">★</span> <span class="text-secondary font-normal">(1434)</span></div>
+<div class="font-label-md text-label-sm font-bold text-on-surface leading-tight">Beck's - Blue Alkoholfrei</div>
+<div class="text-[10px] text-secondary mt-1">Pils Alkoholfrei<br/><span class="inline-block w-2 h-2 rounded-full bg-red-800 mr-1 mt-1"></span>0,5% vol.</div>
+<div class="mt-auto pt-3 text-[10px] text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">visibility</span> 229</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface rounded-lg p-4 border border-outline-variant flex flex-col items-center text-center hover:shadow-md transition-shadow hidden lg:flex">
+<div class="h-32 mb-3 flex items-center justify-center">
+<img alt="Erdinger Weißbier Alkoholfrei" class="h-full object-contain mix-blend-multiply grayscale opacity-90" data-alt="A tall wheat beer bottle, blue Erdinger label indicating non-alcoholic sport drink, bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMgoc0nKyqa4JATQoNDP-DO0eZUaEa0JCMj_OYtYe-OTKf6Qv974Js9vX7nsrqsAymmW1JcDDbwNGRvuUZRd5mYDIQkLrthU3KuPrm9j4ad43AZkQ_BTzqa2kisW71FIfcAjXu4PcS316DIAkADq02Qcdon55X_fkkgdTbm1-5UjDPBekgJdYj0IdDo1WOqlxVtWIskW7YhKs9dQIS9JoEdyq9ZZegd3MPKntt87ai4lNNL_p8aJAncMAllS6nUIffZqM4Q6DcgMk"/>
+</div>
+<div class="text-xs font-bold mb-1 flex items-center gap-1">3.46 <span class="text-yellow-500">★</span> <span class="text-secondary font-normal">(3303)</span></div>
+<div class="font-label-md text-label-sm font-bold text-on-surface leading-tight">Erdinger - Weißbier Alkoholfrei</div>
+<div class="text-[10px] text-secondary mt-1">Weissbier Alkoholfrei<br/><span class="inline-block w-2 h-2 rounded-full bg-red-800 mr-1 mt-1"></span>0,5% vol.</div>
+<div class="mt-auto pt-3 text-[10px] text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">visibility</span> 151</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="border-outline-variant my-4"/>
+<!-- 7. REVIEWS GRID (Bento layout continuation) -->
+<div class="flex flex-col lg:flex-row gap-section-gap">
+<div class="w-full lg:w-label-column-width shrink-0">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Ettl - Kellerbier Rezensionen</h2>
+<div class="flex items-baseline gap-2 mb-4">
+<span class="font-headline-xl text-[32px] text-on-surface font-bold">3,38</span>
+<span class="text-secondary font-label-sm">(5812 Bewertungen)</span>
+</div>
+<!-- Distribution Bars -->
+<div class="space-y-1 w-48 mb-6">
+<div class="flex items-center gap-2 text-[10px] text-secondary"><span class="w-8 text-right">5 ★</span><div class="flex-1 h-1.5 bg-surface-variant rounded"><div class="h-full bg-primary-container rounded" style="width: 15%"></div></div></div>
+<div class="flex items-center gap-2 text-[10px] text-secondary"><span class="w-8 text-right">4 ★</span><div class="flex-1 h-1.5 bg-surface-variant rounded"><div class="h-full bg-primary-container rounded" style="width: 35%"></div></div></div>
+<div class="flex items-center gap-2 text-[10px] text-secondary"><span class="w-8 text-right">3 ★</span><div class="flex-1 h-1.5 bg-surface-variant rounded"><div class="h-full bg-primary-container rounded" style="width: 40%"></div></div></div>
+<div class="flex items-center gap-2 text-[10px] text-secondary"><span class="w-8 text-right">2 ★</span><div class="flex-1 h-1.5 bg-surface-variant rounded"><div class="h-full bg-primary-container rounded" style="width: 8%"></div></div></div>
+<div class="flex items-center gap-2 text-[10px] text-secondary"><span class="w-8 text-right">1 ★</span><div class="flex-1 h-1.5 bg-surface-variant rounded"><div class="h-full bg-primary-container rounded" style="width: 2%"></div></div></div>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex gap-2 mb-4">
+<button class="bg-primary-fixed-dim text-on-primary-container font-label-sm px-4 py-1.5 rounded-full flex items-center gap-1 font-bold">
+                        Nach Datum <span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+<button class="bg-surface border border-outline-variant text-secondary font-label-sm px-4 py-1.5 rounded-full flex items-center gap-1 hover:bg-surface-variant transition-colors">
+                        Nach Bewertung <span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Review 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm hover:shadow transition-shadow flex flex-col">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<div>
+<div class="font-bold text-label-sm text-on-surface">Kellerbier</div>
+<div class="text-[10px] text-secondary">Dolll</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-yellow-500 text-[10px]">★★★★★</div>
+<div class="text-[10px] text-secondary">29. Mai 26</div>
+</div>
+</div>
+<p class="text-label-sm text-on-surface line-clamp-4 flex-1">Farbe: Goldgelb Geruch: malzig süßlich würzig Geschmack: malzig leicht süßlich, aromatisch süffig, keine Bitterniss im Abgang, fruchtige Noten schmeckbar, sehr lecker. Kalt geni...</p>
+<button class="text-left mt-2 text-[10px] font-bold text-primary hover:underline">Mehr anzeigen</button>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm hover:shadow transition-shadow flex flex-col">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-2">
+<img alt="User profile" class="w-8 h-8 rounded-full object-cover" data-alt="A small circular avatar of a smiling man with glasses, neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2XxDXq5yFYp0PG3G8DJXkISHkWNiMT8KgnJr65-OqnZi5ydFDrEJTwNQLvuIaMKU-7JJgEDh1NkaNDKI8bB9yJ_0WWHKLLACeoX3dpdMdUDX68xOouK1HUuB5FP59eJtPP8sSMiyg1n3P3lm7x_fiZbai7Sk8RcFtUab3Kr2-JNHDYXVRpzhchDc7n1nIuckAO2kBDEq-eWqFO6Fm6N17s14OzGepFRT8LOdJj16VnygAgkpeZ6df9qrPuXp3hkGvXQX-k4Zct5Y"/>
+<div>
+<div class="font-bold text-label-sm text-on-surface truncate w-24">Ettl Kellerbier...</div>
+<div class="text-[10px] text-secondary">dietrich.andreas</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-yellow-500 text-[10px]">★★★<span class="text-surface-variant">★★</span></div>
+<div class="text-[10px] text-secondary">21. Mai 26</div>
+</div>
+</div>
+<p class="text-label-sm text-on-surface line-clamp-4 flex-1">ganz ok. Ok</p>
+</div>
+<!-- Review 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm hover:shadow transition-shadow flex flex-col">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-xs">B</div>
+<div>
+<div class="font-bold text-label-sm text-on-surface">Schwach</div>
+<div class="text-[10px] text-secondary">BassMoBill</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-yellow-500 text-[10px]">★★<span class="text-surface-variant">★★★</span></div>
+<div class="text-[10px] text-secondary">21. Apr 26</div>
+</div>
+</div>
+<p class="text-label-sm text-on-surface line-clamp-4 flex-1">Das Ettl Kellerbier macht im Glas leider schon keinen besonders kernigen Eindruck. Statt eines naturtrüben, kräftigen Kellerbiers steht da eher etwas, das optisch fast an ein schwa...</p>
+<button class="text-left mt-2 text-[10px] font-bold text-primary hover:underline">Mehr anzeigen</button>
+</div>
+</div>
+<!-- KI Analyse Panel -->
+<div class="mt-8 rounded-2xl bg-gradient-to-b from-[#fefbf0] to-white border border-[#F5C842]/30 p-6">
+<!-- Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-outline-variant pb-4 mb-4">
+<div class="flex items-center gap-4">
+<div class="bg-[#F5C842]/20 rounded-lg p-3 flex items-center justify-center text-[#d19c00]">
+<span class="material-symbols-outlined text-[24px]">auto_awesome</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface">KI-Analyse der Bewertungen</h3>
+<span class="bg-[#F5C842]/20 text-[#755b00] text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Beta</span>
+</div>
+<p class="text-label-sm text-secondary">Automatische Auswertung aller 5.812 Rezensionen zu Ettl - Kellerbier</p>
+</div>
+</div>
+<button class="bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-md font-bold px-4 py-2 rounded-lg transition-all shadow-sm hover:shadow flex items-center gap-2 shrink-0" id="btn-generate-ai">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span id="btn-generate-text">Analyse generieren</span>
+</button>
+</div>
+<!-- State: Placeholder -->
+<div class="py-12 flex flex-col items-center justify-center text-center" id="ai-state-placeholder">
+<span class="material-symbols-outlined text-[48px] text-surface-variant mb-4">psychology</span>
+<h4 class="font-bold text-on-surface mb-2">Bereit für Insights?</h4>
+<p class="text-label-sm text-secondary max-w-md">Klicken Sie auf "Analyse generieren", um unsere KI die Essenz aus tausenden Bewertungen zusammenfassen zu lassen.</p>
+</div>
+<!-- State: Loading -->
+<div class="py-12 flex flex-col items-center justify-center text-center hidden" id="ai-state-loading">
+<div class="w-10 h-10 border-4 border-surface-variant border-t-primary-container rounded-full animate-spin mb-4"></div>
+<p class="text-label-sm font-bold text-secondary animate-pulse" id="ai-loading-text">Sammle alle 5.812 Bewertungen...</p>
+</div>
+<!-- State: Result -->
+<div class="hidden flex flex-col gap-6" id="ai-state-result">
+<!-- Block A: Gesamtfazit -->
+<div>
+<h4 class="font-bold text-label-md text-on-surface mb-2 uppercase tracking-wide">Gesamtfazit der Community</h4>
+<p class="text-body-md text-on-surface leading-relaxed">
+                Das Ettl Kellerbier wird von der Community überwiegend als <strong>sehr süffiges, malzbetontes Bier</strong> geschätzt. Die optische Aufmachung und der Geruch schneiden gut ab. Allerdings vermissen viele Kenner die typische "Kernigkeit" eines traditionellen Kellerbiers und kritisieren oft die zu schwache Naturtrübung sowie einen etwas wässrigen Körper im Abgang.
+            </p>
+</div>
+<!-- Block B: Cards side-by-side -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Left: Stärken -->
+<div class="bg-green-50 border border-green-200 rounded-xl p-4">
+<div class="flex items-center gap-2 mb-3 text-green-800">
+<span class="material-symbols-outlined">thumb_up</span>
+<h5 class="font-bold text-label-md">Stärken</h5>
+</div>
+<ul class="text-label-sm text-on-surface space-y-2 list-disc list-inside">
+<li>Hohe Süffigkeit (Drinkability)</li>
+<li>Schönes, süßliches Malzaroma</li>
+<li>Ansprechende goldgelbe Farbe und stabiler Schaum</li>
+</ul>
+</div>
+<!-- Right: Herausforderungen -->
+<div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+<div class="flex items-center gap-2 mb-3 text-amber-800">
+<span class="material-symbols-outlined">warning</span>
+<h5 class="font-bold text-label-md">Herausforderungen</h5>
+</div>
+<ul class="text-label-sm text-on-surface space-y-2 list-disc list-inside">
+<li>Zu schwache Trübung für ein Kellerbier</li>
+<li>Wird oft als etwas "dünn" oder wässrig empfunden</li>
+<li>Leichte Schwankungen in der Qualität erwähnt</li>
+</ul>
+</div>
+</div>
+<!-- Block C: Suggestions -->
+<div class="bg-[#F5C842]/10 border border-[#F5C842]/30 rounded-xl p-4">
+<h5 class="font-bold text-label-md text-[#755b00] mb-3">Aus der KI abgeleitete Handlungsempfehlungen</h5>
+<ol class="text-label-sm text-on-surface space-y-2 list-decimal list-inside">
+<li><strong>Rezepturanpassung:</strong> Leichte Erhöhung der Trübung und Vollmundigkeit prüfen, um den Erwartungen an ein "Kellerbier" besser zu entsprechen.</li>
+<li><strong>Marketing-Fokus:</strong> Die hohe Süffigkeit und das Malzaroma in der Kommunikation in den Vordergrund stellen.</li>
+<li><strong>Qualitätssicherung:</strong> Prozesskontrolle intensivieren, um gelegentlich erwähnte Chargenschwankungen zu minimieren.</li>
+</ol>
+</div>
+<!-- Block D: Disclaimer -->
+<div class="text-[10px] text-secondary italic">
+            Hinweis: Diese Analyse wurde von einer KI basierend auf öffentlichen Community-Bewertungen generiert. Sie ersetzt keine fachliche sensorische Prüfung.
+        </div>
+</div>
+</div>
+</div>
+</div>
+<hr class="border-outline-variant my-4"/>
+<!-- 8. NEW BEER FORM & BRAUEREI EDIT (Glassmorphism inspired clean forms) -->
+<div class="flex flex-col lg:flex-row gap-section-gap">
+<div class="w-full lg:w-label-column-width shrink-0">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Brauerei bearbeiten</h2>
+<p class="font-body-md text-body-md text-secondary">Verwalten Sie Ihre Brauereidaten, Medien und fügen Sie neue Produkte hinzu.</p>
+<button class="w-full mt-6 bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-md font-bold px-6 py-3 rounded-lg transition-all shadow-sm hover:shadow flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">save</span>
+                    Speichern
+                </button>
+</div>
+<div class="flex-1 flex flex-col gap-8">
+<!-- Section: Profilbild & Slider -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start border-b border-outline-variant pb-6 mb-6">
+<div class="font-headline-md text-body-lg font-bold text-on-surface">Sprache</div>
+<div class="md:col-span-3 flex">
+<div class="flex bg-surface rounded-lg border border-outline-variant p-1 w-full max-w-sm">
+<button class="flex-1 bg-primary-container text-on-primary-container font-label-sm font-bold py-1.5 rounded-md shadow-sm">Deutsch</button>
+<button class="flex-1 text-secondary font-label-sm py-1.5 hover:bg-surface-variant rounded-md transition-colors">Englisch</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-center border-b border-outline-variant pb-6 mb-6">
+<div class="font-headline-md text-body-lg font-bold text-on-surface">Profilbild</div>
+<div class="md:col-span-3 bg-surface border border-outline-variant border-dashed rounded-lg p-4 flex items-center justify-between hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-variant rounded-md overflow-hidden flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-secondary">image</span>
+</div>
+<div>
+<div class="text-label-sm font-bold text-on-surface group-hover:text-primary transition-colors">logo-01.jpg</div>
+<div class="text-[10px] text-secondary">121.86 KB</div>
+</div>
+</div>
+<div class="flex gap-2 text-secondary opacity-50 group-hover:opacity-100 transition-opacity">
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+<button class="hover:text-error"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
+<div class="font-headline-md text-body-lg font-bold text-on-surface">Slider</div>
+<div class="md:col-span-3 space-y-2">
+<!-- Image Item 1 -->
+<div class="bg-surface border border-outline-variant rounded-lg p-3 flex items-center justify-between hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-variant rounded flex items-center justify-center overflow-hidden"><span class="material-symbols-outlined text-secondary text-[16px]">landscape</span></div>
+<div>
+<div class="text-[12px] font-bold text-on-surface truncate w-48">portal-sujet-sommer-03.jpg</div>
+<div class="text-[10px] text-secondary">230.22 KB</div>
+</div>
+</div>
+<div class="flex gap-2 text-secondary opacity-50 group-hover:opacity-100 transition-opacity">
+<button class="hover:text-error"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+</div>
+</div>
+<!-- Image Item 2 -->
+<div class="bg-surface border border-outline-variant rounded-lg p-3 flex items-center justify-between hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-variant rounded flex items-center justify-center overflow-hidden"><span class="material-symbols-outlined text-secondary text-[16px]">groups</span></div>
+<div>
+<div class="text-[12px] font-bold text-on-surface truncate w-48">Brauerei-Team-2025.jpg</div>
+<div class="text-[10px] text-secondary">3.18 MB</div>
+</div>
+</div>
+<div class="flex gap-2 text-secondary opacity-50 group-hover:opacity-100 transition-opacity">
+<button class="hover:text-error"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+</div>
+</div>
+<button class="w-full bg-surface border border-outline-variant border-dashed rounded-lg p-3 flex items-center justify-center gap-2 text-secondary hover:text-primary hover:border-primary hover:bg-primary-fixed-dim hover:bg-opacity-10 transition-all font-label-sm">
+<span class="material-symbols-outlined text-[18px]">add</span> Bild hinzufügen
+                            </button>
+</div>
+</div>
+</div>
+<!-- Section: Text Data -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start border-b border-outline-variant pb-6 mb-6">
+<div class="font-headline-md text-body-lg font-bold text-on-surface">Brauerei Daten</div>
+<div class="md:col-span-3 space-y-4">
+<div>
+<label class="block text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">Name</label>
+<input class="w-full px-4 py-2 rounded-lg border border-outline-variant bg-surface focus:ring-2 focus:ring-primary-container focus:border-primary-container text-body-md font-body-md text-on-surface transition-all" type="text" value="Privatbrauerei Ettl"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">Gegründet</label>
+<input class="w-full px-4 py-2 rounded-lg border border-outline-variant bg-surface focus:ring-2 focus:ring-primary-container focus:border-primary-container text-body-md font-body-md text-on-surface transition-all" type="text" value="1543"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">Stadt</label>
+<input class="w-full px-4 py-2 rounded-lg border border-outline-variant bg-surface focus:ring-2 focus:ring-primary-container focus:border-primary-container text-body-md font-body-md text-on-surface transition-all" type="text" value="Teisnach"/>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
+<div class="font-headline-md text-body-lg font-bold text-on-surface">Beschreibung</div>
+<div class="md:col-span-3">
+<textarea class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface focus:ring-2 focus:ring-primary-container focus:border-primary-container text-label-sm font-body-md text-on-surface transition-all resize-none leading-relaxed" rows="5">Die Ettl Brauerei, mit einer stolzen Geschichte von 480 Jahren, ist eine wahre Ikone aus dem Herzen des Bayerischen Waldes. Seit Generationen ist sie bekannt für ihre handwerklich gebrauten Bierspezialitäten, die Tradition und Innovation auf einzigartige Weise vereinen. Mit einer Leidenschaft für Qualität und Geschmack hat sich die Ettl Brauerei einen festen Platz in der bayerischen Bierkultur erobert und ist ein beliebtes Ziel für Bierliebhaber und Besucher aus aller Welt.</textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="border-outline-variant my-4"/>
+<!-- 9. NEUES BIER EINPFLEGEN -->
+<section class="flex flex-col lg:flex-row gap-section-gap">
+<div class="w-full lg:w-label-column-width shrink-0">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Neues Bier einpflegen</h2>
+<p class="font-body-md text-body-md text-secondary">Fügen Sie ein neues Produkt zu Ihrem Portfolio hinzu. Es erscheint nach Prüfung in der App.</p>
+</div>
+<div class="flex-1">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 shadow-sm">
+<div class="space-y-6">
+<!-- ROW 1: Image Upload -->
+<div class="w-full border-2 border-dashed border-outline-variant bg-surface-container-low rounded-xl p-8 flex flex-col items-center justify-center cursor-pointer hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-[48px] text-secondary group-hover:text-primary mb-2">add_photo_alternate</span>
+<span class="font-bold text-on-surface">Freisteller-Bild hochladen</span>
+<span class="text-[12px] text-secondary mt-1">PNG mit transparentem Hintergrund empfohlen · max. 5 MB</span>
+</div>
+<!-- ROW 2: Name & Style -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">Name</label>
+<input class="w-full px-4 py-2 rounded-lg border border-outline-variant bg-surface focus:ring-2 focus:ring-primary-container focus:border-primary-container text-body-md font-body-md text-on-surface transition-all" placeholder="z.B. Ettl - Sommerbier" type="text"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">Bierstil</label>
+<select class="form-select w-full rounded-lg border-outline-variant text-label-sm font-label-sm py-2 pl-4 pr-8 focus:ring-primary-container focus:border-primary-container bg-surface">
+<option>Helles</option><option>Pils</option><option>Weißbier</option><option>IPA</option><option>Pale Ale</option><option>Kellerbier</option><option>Bock</option><option>Dunkel</option><option>Märzen</option><option>Zwickl</option><option>Alkoholfrei</option>
+</select>
+</div>
+</div>
+<!-- ROW 3: Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div>
+<label class="block text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">Alkoholgehalt %</label>
+<input class="w-full px-4 py-2 rounded-lg border border-outline-variant bg-surface focus:ring-2 focus:ring-primary-container focus:border-primary-container text-body-md font-body-md text-on-surface transition-all" placeholder="5.0" step="0.1" type="number"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">IBU</label>
+<input class="w-full px-4 py-2 rounded-lg border border-outline-variant bg-surface focus:ring-2 focus:ring-primary-container focus:border-primary-container text-body-md font-body-md text-on-surface transition-all" placeholder="20" type="number"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">Stammwürze °</label>
+<input class="w-full px-4 py-2 rounded-lg border border-outline-variant bg-surface focus:ring-2 focus:ring-primary-container focus:border-primary-container text-body-md font-body-md text-on-surface transition-all" placeholder="12.5" step="0.1" type="number"/>
+</div>
+</div>
+<!-- ROW 4: Fermentation & Color -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">Gärungsart</label>
+<select class="form-select w-full rounded-lg border-outline-variant text-label-sm font-label-sm py-2 pl-4 pr-8 focus:ring-primary-container focus:border-primary-container bg-surface">
+<option>untergärig</option><option>obergärig</option>
+</select>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">Farbe / EBC</label>
+<input class="w-full px-4 py-2 rounded-lg border border-outline-variant bg-surface focus:ring-2 focus:ring-primary-container focus:border-primary-container text-body-md font-body-md text-on-surface transition-all" placeholder="8" type="number"/>
+</div>
+</div>
+<!-- ROW 5: Description -->
+<div>
+<label class="block text-[10px] font-bold text-secondary uppercase tracking-wider mb-1">Beschreibung</label>
+<textarea class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface focus:ring-2 focus:ring-primary-container focus:border-primary-container text-label-sm font-body-md text-on-surface transition-all resize-none leading-relaxed" placeholder="Beschreiben Sie Ihr neues Bier – Charakter, Aromen, Besonderheiten..." rows="4"></textarea>
+</div>
+<!-- ROW 6: Save Button -->
+<div class="flex justify-end">
+<button class="bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-md font-bold px-8 py-3 rounded-lg transition-all shadow-sm hover:shadow flex items-center gap-2" id="btn-save-beer">
+<span class="material-symbols-outlined">save</span>
+            Bier speichern
+          </button>
+</div>
+<!-- INLINE UPSELL -->
+<div class="bg-[#F5C842]/10 border border-primary-container rounded-xl p-6 mt-8 flex flex-col md:flex-row items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed-dim flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<div class="flex-1 text-center md:text-left">
+<div class="font-bold text-on-surface">Neues Bier? Maximale Aufmerksamkeit!</div>
+<p class="text-label-sm text-secondary">Lassen Sie Ihr neues Bier mit einem redaktionellen Newsartikel in App &amp; Newsletter (130.000 Abonnenten) starten. Der perfekte Push für einen erfolgreichen Launch.</p>
+<div class="font-bold text-primary mt-1">Einmalig €299</div>
+</div>
+<div class="flex flex-col items-center md:items-end gap-3 shrink-0">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-label-sm text-on-surface">Newsartikel direkt mit diesem Bier buchen</span>
+</label>
+<button class="bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-sm font-bold px-4 py-2 rounded-lg transition-all">Newsartikel dazubuchen</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<hr class="border-outline-variant my-4"/><section class="pb-10">
+<div class="text-center mb-10">
+<h2 class="font-headline-xl text-headline-lg text-on-surface mb-2">Marketing Booster</h2>
+<p class="font-body-md text-body-lg text-secondary max-w-2xl mx-auto">Erhöhen Sie die Sichtbarkeit Ihrer Brauerei in der BeerTasting Community durch gezielte Platzierungen.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 flex flex-col hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-xl bg-surface-variant flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined text-[24px]">article</span>
+</div>
+<h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-2">Newsartikel</h3>
+<p class="text-label-sm text-secondary mb-6 flex-1">Ein ausführlicher Beitrag im BeerTasting Magazin. Perfekt für neue Bier-Releases oder Brauerei-Jubiläen.</p>
+<div class="font-headline-lg text-[28px] font-bold text-on-surface mb-4">€299</div>
+<button class="w-full border border-secondary text-secondary font-label-md py-2 rounded-lg hover:bg-surface-variant transition-colors">Buchen</button>
+</div>
+<!-- Card 2 (Highlighted) -->
+<div class="bg-surface-container-lowest border-2 border-primary-container rounded-2xl p-6 flex flex-col shadow-md relative overflow-hidden transform md:-translate-y-2">
+<div class="absolute top-0 right-0 bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-lg">Beliebt</div>
+<div class="w-12 h-12 rounded-xl bg-primary-fixed-dim flex items-center justify-center text-primary-container mb-4">
+<span class="material-symbols-outlined text-[24px] text-yellow-700">stars</span>
+</div>
+<h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-2">Regionales Highlight</h3>
+<p class="text-label-sm text-secondary mb-6 flex-1">Ihre Biere werden Nutzern in Ihrer Zielregion für 30 Tage als "Beliebt in der Region" hervorgehoben.</p>
+<div class="font-headline-lg text-[28px] font-bold text-on-surface mb-4">€199 <span class="text-[14px] text-secondary font-normal">/ Monat</span></div>
+<button class="w-full bg-primary-container text-on-primary-container font-label-md font-bold py-2 rounded-lg hover:bg-primary-fixed-dim transition-colors shadow-sm">Jetzt aktivieren</button>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 flex flex-col hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-xl bg-surface-variant flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined text-[24px]">notifications_active</span>
+</div>
+<h3 class="font-headline-md text-[20px] font-bold text-on-surface mb-2">Push-Nachricht</h3>
+<p class="text-label-sm text-secondary mb-6 flex-1">Direkte Benachrichtigung an alle Nutzer, die Ihre Brauerei als Favorit markiert haben.</p>
+<div class="font-headline-lg text-[28px] font-bold text-on-surface mb-4">€149</div>
+<button class="w-full border border-secondary text-secondary font-label-md py-2 rounded-lg hover:bg-surface-variant transition-colors">Buchen</button>
+</div>
+</div>
+</section>
+</main>
+<!-- 10. FOOTER -->
+<footer class="bg-inverse-surface text-inverse-on-surface py-8 mt-auto border-t border-secondary">
+<div class="max-w-container-max mx-auto px-margin-x flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="font-headline-xl text-body-lg tracking-tighter text-on-secondary">BEERTASTING</span>
+<span class="font-label-sm text-secondary-fixed-dim">for Business</span>
+</div>
+<div class="text-[12px] text-secondary-fixed-dim text-center md:text-left">
+                © 2026 Kalea GmbH, Salzburg. Alle Rechte vorbehalten.
+            </div>
+<div class="flex gap-6 text-[12px]">
+<a class="text-secondary-fixed-dim hover:text-on-secondary transition-colors" href="#">Impressum</a>
+<a class="text-secondary-fixed-dim hover:text-on-secondary transition-colors" href="#">Datenschutz</a>
+<a class="text-secondary-fixed-dim hover:text-on-secondary transition-colors" href="#">Hilfe &amp; Support</a>
+</div>
+</div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btnGenerate = document.getElementById('btn-generate-ai');
+        const btnText = document.getElementById('btn-generate-text');
+        const statePlaceholder = document.getElementById('ai-state-placeholder');
+        const stateLoading = document.getElementById('ai-state-loading');
+        const stateResult = document.getElementById('ai-state-result');
+        const loadingText = document.getElementById('ai-loading-text');
+
+        if(btnGenerate) {
+            btnGenerate.addEventListener('click', () => {
+                // Disable button
+                btnGenerate.disabled = true;
+                btnGenerate.classList.add('opacity-50', 'cursor-not-allowed');
+
+                // Switch states
+                statePlaceholder.classList.add('hidden');
+                stateResult.classList.add('hidden');
+                stateLoading.classList.remove('hidden');
+
+                // Loading sequence
+                const steps = [
+                    "Analysiere Geschmacks- und Geruchsnoten...",
+                    "Erkenne wiederkehrende Muster...",
+                    "Erstelle Zusammenfassung & Handlungsempfehlungen..."
+                ];
+                let stepIdx = 0;
+                
+                const interval = setInterval(() => {
+                    if (stepIdx < steps.length) {
+                        loadingText.textContent = steps[stepIdx];
+                        stepIdx++;
+                    } else {
+                        clearInterval(interval);
+                        
+                        // Show result
+                        stateLoading.classList.add('hidden');
+                        stateResult.classList.remove('hidden');
+                        
+                        // Reset button
+                        btnGenerate.disabled = false;
+                        btnGenerate.classList.remove('opacity-50', 'cursor-not-allowed');
+                        btnText.textContent = "Neu generieren";
+                    }
+                }, 700);
+            });
+        }
+    });
+</script>
+<script>
+  (function() {
+    const btn = document.getElementById('btn-save-beer');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const originalContent = btn.innerHTML;
+        btn.innerHTML = '<span class="material-symbols-outlined">check</span> Gespeichert';
+        btn.classList.add('bg-green-600', 'text-white');
+        btn.classList.remove('bg-primary-container', 'text-on-primary-container');
+        setTimeout(() => {
+          btn.innerHTML = originalContent;
+          btn.classList.remove('bg-green-600', 'text-white');
+          btn.classList.add('bg-primary-container', 'text-on-primary-container');
+        }, 2000);
+      });
+    }
+  })();
+</script></body></html>
