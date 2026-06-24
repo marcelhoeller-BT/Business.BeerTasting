@@ -1,5 +1,5 @@
 <!DOCTYPE html><html class="scroll-smooth" lang="de"><head>
-<meta charset="utf-8"><link href="https://raw.githubusercontent.com/marcelhoeller-BT/Business.BeerTasting/main/favicon.png" rel="icon" type="image/png"><link href="https://raw.githubusercontent.com/marcelhoeller-BT/Business.BeerTasting/main/favicon.png" rel="apple-touch-icon">
+<meta charset="utf-8"><link rel="icon" type="image/png" href="https://raw.githubusercontent.com/marcelhoeller-BT/Business.BeerTasting/main/favicon.png"><link rel="apple-touch-icon" href="https://raw.githubusercontent.com/marcelhoeller-BT/Business.BeerTasting/main/favicon.png">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>BeerTasting for Business — Marketing für Brauereien</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -151,7 +151,9 @@
 </header>
 <main class="pt-20">
 <!-- New Hero Section -->
-<section class="w-full h-[85vh] overflow-hidden" id="home"><img alt="BeerTasting Hero" class="w-full h-[85vh] object-cover object-top" src="https://business-beer-tastingl.vercel.app/hero.jpg"></section>
+<section class="w-full h-[90vh] overflow-hidden" id="home">
+<img alt="BeerTasting Hero" class="w-full h-full object-cover object-center" src="/hero.png">
+</section>
 <!-- New Hero Content Section -->
 <section class="bg-surface-white py-24 px-margin-mobile">
 <div class="max-w-container-max mx-auto text-center space-y-8">
@@ -439,7 +441,7 @@
 <div class="lg:w-1/2 flex justify-center relative">
 <div class="absolute -inset-4 bg-primary/5 blur-3xl rounded-full"></div>
 <div class="relative max-w-[280px] md:max-w-[320px] transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-<img alt="BeerTasting Challenge App Screen" class="rounded-[2.5rem] shadow-2xl border-[8px] border-inverse-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9XA3f-eJicrOxczXwDb6yAb46OWJL1m4jDBrxoLgOeGDFxwLALrfuvOTV-g3btKh8GUBy_1DV7p-Ww-iwp8brdtZC7qxeYkdi6DlzdwLocvye8Vn4D4zXvrO0-AKJdndyGWM_VTW3AdYpfaXf-y_55z_YUvQVZNDPcHdpwH0k_A3gvrSMq-AFksg3wCh6tNSax9PYL1eRgux8yMDlhfpiLUFeo9NiGKfqB81TBic8DyCO4s078BB22N2UeVaVxlsM3nX-g7gg4ko">
+<img alt="BeerTasting Challenge App Screen" class="rounded-[2.5rem] shadow-2xl border-[8px] border-inverse-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDA74lq58zP4L85p2CxPFJZhoNQbcMc6NVA2J4yzykQ3s2adFxHO2wkbExcnlRjPjPbuzASuQtkJWUVZTzGp31ZZmzqafwaUGg5YdjYURJsWmq3A2hRhEQyVjoaSV9MmSZZ-jtWMhmkul_sslCVrQGR2lmL1AVwBOBlCFn2fjZ1-9XCW6yxXJQwvbt2ZDhwlkzW6EVQ2pok86zl2Ux49JHoshrbSRyCne5k3W1oedBG6WKV1DF9_XUTaSowTrwdWHqRTLxxGjEgH4">
 <div class="absolute -right-8 top-1/4 bg-surface-white p-4 rounded-2xl shadow-xl border border-border-subtle animate-bounce" style="animation-duration: 4s">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center text-white">
@@ -787,14 +789,14 @@
 </div>
 <form class="space-y-4" id="trend-report-form">
 <div class="space-y-1">
-<label class="text-label-sm font-bold text-text-main uppercase" for="brauerei">Name der Brauerei</label>
-<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" id="brauerei" name="brauerei" placeholder="Brauerei Name" required="" type="text">
+<label class="text-label-sm font-bold text-text-main uppercase">Name der Brauerei</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" placeholder="Brauerei Name" required="" type="text">
 </div>
 <div class="space-y-1">
-<label class="text-label-sm font-bold text-text-main uppercase" for="email">E-Mail-Adresse</label>
-<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" id="email" name="email" placeholder="ihre@email.de" required="" type="email">
+<label class="text-label-sm font-bold text-text-main uppercase">E-Mail-Adresse</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" placeholder="ihre@email.de" required="" type="email">
 </div>
-<button class="w-full bg-primary-container text-white py-4 rounded-xl font-bold hover:opacity-90 transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed" id="submit-button" type="submit">Report jetzt herunterladen</button>
+<button class="w-full bg-primary-container text-white py-4 rounded-xl font-bold hover:opacity-90 transition-all shadow-md" type="submit">Report jetzt herunterladen</button>
 </form>
 <div class="hidden text-center py-8 space-y-4" id="success-message">
 <div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center text-primary-container mx-auto">
@@ -813,7 +815,6 @@
         const closeBtn = document.getElementById('close-modal');
         const form = document.getElementById('trend-report-form');
         const success = document.getElementById('success-message');
-        const submitBtn = document.getElementById('submit-button');
         
         function openModal(){
             modal.classList.remove('hidden');
@@ -828,62 +829,21 @@
             form.classList.remove('hidden');
             success.classList.add('hidden');
             form.reset();
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Report jetzt herunterladen';
         }
         
         if (trigger) trigger.addEventListener('click', openModal);
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
         modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const brauerei = document.getElementById('brauerei').value;
-            const email = document.getElementById('email').value;
-
-            if (!brauerei || !email) return;
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Wird gesendet...';
-
-            fetch("https://formspree.io/f/mnjkjnky", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                brauerei: document.getElementById('brauerei').value,
-                email: document.getElementById('email').value
-              })
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Success logic
-                    window.open("https://raw.githubusercontent.com/marcelhoeller-BT/Business.BeerTasting/main/BeerTasting_Trendreport_2026.pdf", "_blank");
-                    
-                    form.classList.add('hidden'); 
-                    success.classList.remove('hidden'); 
-                    
-                    setTimeout(closeModal, 3000);
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            alert(data["errors"].map(error => error["message"]).join(", "));
-                        } else {
-                            alert("Fehler beim Senden. Bitte erneut versuchen.");
-                        }
-                    });
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Report jetzt herunterladen';
-                }
-            })
-            .catch(error => {
-                alert("Fehler beim Senden. Bitte erneut versuchen.");
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Report jetzt herunterladen';
-            });
+        form.addEventListener('submit', (e) => { 
+            e.preventDefault(); 
+            form.classList.add('hidden'); 
+            success.classList.remove('hidden'); 
+            setTimeout(closeModal, 3000); 
         });
     })();
 </script>
+
+
 
 
 </body></html>
