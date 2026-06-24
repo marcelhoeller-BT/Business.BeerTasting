@@ -10,19 +10,19 @@
             theme: {
                 extend: {
                     "colors": {
-                        "surface-dim": "#e8e2d4",
+                        "surface-dim": "#d9dadb",
                         "tertiary": "#715c00",
                         "on-primary": "#ffffff",
-                        "surface": "#FDF8EE",
-                        "secondary-container": "#f0ead9",
+                        "surface": "#f8f9fa",
+                        "secondary-container": "#e4e2e1",
                         "on-tertiary": "#ffffff",
-                        "surface-container-high": "#f3ecdb",
-                        "text-muted": "#8A7E66",
-                        "surface-container-low": "#FBF4E6",
+                        "surface-container-high": "#e7e8e9",
+                        "text-muted": "#64748B",
+                        "surface-container-low": "#f3f4f5",
                         "on-secondary-container": "#656464",
                         "on-primary-fixed": "#2a1700",
-                        "primary": "#C17F24",
-                        "outline": "#b89e72",
+                        "primary": "#855300",
+                        "outline": "#867461",
                         "secondary-fixed-dim": "#c8c6c5",
                         "on-tertiary-container": "#524200",
                         "on-secondary-fixed-variant": "#474746",
@@ -32,36 +32,34 @@
                         "on-tertiary-fixed": "#231b00",
                         "tertiary-fixed-dim": "#e3c458",
                         "on-secondary-fixed": "#1b1c1c",
-                        "inverse-surface": "#1A1A1A",
-                        "primary-container": "#F5A623",
+                        "inverse-surface": "#2e3132",
+                        "primary-container": "#f59e0b",
                         "primary-fixed": "#ffddb8",
-                        "surface-container": "#F5EDDC",
+                        "surface-container": "#edeeef",
                         "secondary-fixed": "#e4e2e1",
                         "inverse-primary": "#ffb95f",
-                        "secondary": "#6b6358",
+                        "secondary": "#5f5e5e",
                         "on-tertiary-fixed-variant": "#554500",
                         "tertiary-fixed": "#ffe17a",
                         "on-secondary": "#ffffff",
                         "on-error-container": "#93000a",
                         "on-surface": "#191c1d",
                         "on-error": "#ffffff",
-                        "surface-variant": "#f0ead9",
+                        "surface-variant": "#e1e3e4",
                         "on-primary-fixed-variant": "#653e00",
                         "surface-white": "#FFFFFF",
                         "on-surface-variant": "#534434",
-                        "surface-container-highest": "#f0e8d6",
-                        "surface-bright": "#FDF8EE",
-                        "border-subtle": "#EBE2CF",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-bright": "#f8f9fa",
+                        "border-subtle": "#E2E8F0",
                         "surface-container-lowest": "#ffffff",
-                        "background": "#FDF8EE",
-                        "surface-tint": "#C17F24",
+                        "background": "#f8f9fa",
+                        "surface-tint": "#855300",
                         "inverse-on-surface": "#f0f1f2",
                         "error-container": "#ffdad6",
-                        "outline-variant": "#e0d4ba",
+                        "outline-variant": "#d8c3ad",
                         "on-primary-container": "#613b00",
                         "error": "#ba1a1a",
-                        "beer-yellow": "#F5C842",
-                        "beer-yellow-light": "#FAD96B",
                         "tertiary-container": "#ccaf45"
                     },
                     "borderRadius": {
@@ -113,16 +111,6 @@
         .amber-glow {
             box-shadow: 0 4px 24px -1px rgba(245, 158, 11, 0.15);
         }
-        .wave-divider {
-            display: block;
-            width: 100%;
-            line-height: 0;
-        }
-        .wave-divider svg {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
         /* Custom scrollbar for search results */
         #hero-brewery-results-container::-webkit-scrollbar {
             width: 4px;
@@ -152,9 +140,9 @@
 <a class="text-secondary hover:text-primary transition-colors font-label-md text-label-md" href="#">BeerTasting App</a>
 </div>
 <div class="flex items-center gap-4">
-<button id="contact-trigger" class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold hover:opacity-90 transition-opacity font-label-md text-label-md">
+<a href="mailto:info@beertasting.com" class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold hover:opacity-90 transition-opacity font-label-md text-label-md">
                 Kontakt
-            </button>
+            </a>
 <button class="lg:hidden p-2 text-secondary">
 <span class="material-symbols-outlined">menu</span>
 </button>
@@ -163,26 +151,20 @@
 </header>
 <main class="pt-20">
 <!-- New Hero Section -->
-<section class="w-full h-[90vh] overflow-hidden relative" id="home">
+<section class="w-full h-[90vh] overflow-hidden" id="home">
 <img alt="BeerTasting Hero" class="w-full h-full object-cover object-center" src="https://raw.githubusercontent.com/marcelhoeller-BT/Business.BeerTasting/main/hero.png">
-<div class="wave-divider absolute bottom-0 left-0 right-0">
-<svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,64 C240,110 480,20 720,48 C960,76 1200,120 1440,72 L1440,120 L0,120 Z" fill="#F5C842" opacity="0.5"></path>
-<path d="M0,88 C240,40 480,100 720,80 C960,60 1200,30 1440,90 L1440,120 L0,120 Z" fill="#F5C842"></path>
-</svg>
-</div>
 </section>
 <!-- New Hero Content Section -->
-<section class="bg-beer-yellow py-24 px-margin-mobile">
+<section class="bg-surface-white py-24 px-margin-mobile">
 <div class="max-w-container-max mx-auto text-center space-y-8">
-<div class="inline-flex items-center px-6 py-2 bg-text-main text-beer-yellow rounded-full font-label-md text-label-md uppercase tracking-wider mx-auto">
+<div class="inline-flex items-center px-6 py-2 bg-primary-container text-white rounded-full font-label-md text-label-md uppercase tracking-wider mx-auto">
             Europas größte Bier-Plattform
         </div>
-<h1 class="font-display-lg text-display-lg leading-tight text-text-main">
+<h1 class="font-display-lg text-display-lg leading-tight">
             Marketing für <br>
-<span class="text-primary">Brauereien, die wachsen.</span>
+<span class="text-primary-container">Brauereien, die wachsen.</span>
 </h1>
-<p class="font-body-lg text-body-lg text-text-main/70 max-w-[480px] mx-auto">
+<p class="font-body-lg text-body-lg text-text-muted max-w-[480px] mx-auto">
             Positionieren Sie Ihre Marke direkt in der aktiven Zielgruppe von 245.000+ Bierliebhabern.
         </p>
 <div class="w-full max-w-4xl mx-auto flex flex-col lg:flex-row gap-6 items-stretch pt-4">
@@ -197,7 +179,7 @@
 <div class="p-6 text-center text-text-muted text-sm">Geben Sie mindestens 2 Zeichen ein, um nach Brauereien zu suchen.</div>
 </div>
 </div>
-<div class="lg:w-1/3 flex flex-col justify-center p-6 bg-white rounded-xl border border-outline-variant text-center space-y-4 amber-glow">
+<div class="lg:w-1/3 flex flex-col justify-center p-6 bg-surface-container-low rounded-xl border border-border-subtle text-center space-y-4">
 <p class="font-label-sm text-text-muted uppercase">Unsere Angebote</p>
 <h4 class="font-bold text-text-main">Passende Pakete für Sie</h4>
 <a class="bg-primary-container text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-all text-center" href="#pakete">
@@ -207,12 +189,6 @@
 </div>
 </div>
 </section>
-<!-- Wave divider into stats bar -->
-<div class="wave-divider bg-beer-yellow">
-<svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0,40 C360,80 720,0 1080,32 C1260,48 1350,56 1440,40 L1440,80 L0,80 Z" fill="#1A1A1A"></path>
-</svg>
-</div>
 <!-- Stats Bar with JS Counter -->
 <section class="bg-inverse-surface py-12" id="stats-bar">
 <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
@@ -827,113 +803,11 @@
 <span class="material-symbols-outlined text-4xl">download_done</span>
 </div>
 <h4 class="font-bold text-title-lg">Download gestartet!</h4>
-<p class="text-text-muted">Vielen Dank für Ihr Interesse. Der Report öffnet sich in einem neuen Tab.</p>
+<p class="text-text-muted">Vielen Dank für Ihr Interesse. Der Report wird in Kürze in Ihrem Postfach landen.</p>
 </div>
 </div>
 </div>
 </div>
-<!-- Contact Modal -->
-<div class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm" id="contact-modal">
-<div class="bg-surface-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden border border-border-subtle amber-glow relative">
-<button class="absolute top-4 right-4 text-text-muted hover:text-text-main transition-colors" id="close-contact-modal">
-<span class="material-symbols-outlined">close</span>
-</button>
-<div class="p-8 space-y-6">
-<div class="text-center space-y-2">
-<h3 class="font-headline-md text-headline-md text-text-main">Kontakt aufnehmen</h3>
-<p class="text-text-muted text-body-md">Sie haben Fragen oder möchten Ihre Brauerei präsentieren? Schreiben Sie uns — wir melden uns zeitnah.</p>
-</div>
-<form class="space-y-4" id="contact-form">
-<div class="space-y-1">
-<label class="text-label-sm font-bold text-text-main uppercase">Name</label>
-<input name="name" class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" placeholder="Ihr Name" required="" type="text">
-</div>
-<div class="space-y-1">
-<label class="text-label-sm font-bold text-text-main uppercase">Brauerei / Unternehmen</label>
-<input name="unternehmen" class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" placeholder="Name Ihrer Brauerei" type="text">
-</div>
-<div class="space-y-1">
-<label class="text-label-sm font-bold text-text-main uppercase">E-Mail-Adresse</label>
-<input name="email" class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all" placeholder="ihre@email.de" required="" type="email">
-</div>
-<div class="space-y-1">
-<label class="text-label-sm font-bold text-text-main uppercase">Nachricht</label>
-<textarea name="nachricht" rows="4" class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:ring-2 focus:ring-primary-container focus:border-primary-container outline-none transition-all resize-none" placeholder="Ihre Nachricht an uns..." required=""></textarea>
-</div>
-<button class="w-full bg-primary-container text-white py-4 rounded-xl font-bold hover:opacity-90 transition-all shadow-md" type="submit">Nachricht senden</button>
-</form>
-<div class="hidden text-center py-8 space-y-4" id="contact-success-message">
-<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center text-primary-container mx-auto">
-<span class="material-symbols-outlined text-4xl">mark_email_read</span>
-</div>
-<h4 class="font-bold text-title-lg">Nachricht gesendet!</h4>
-<p class="text-text-muted">Vielen Dank für Ihre Anfrage. Wir melden uns so schnell wie möglich bei Ihnen.</p>
-</div>
-</div>
-</div>
-</div>
-<script>
-    (function(){
-        const modal = document.getElementById('contact-modal');
-        const trigger = document.getElementById('contact-trigger');
-        const closeBtn = document.getElementById('close-contact-modal');
-        const form = document.getElementById('contact-form');
-        const success = document.getElementById('contact-success-message');
-
-        function openModal(){
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(){
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = '';
-            form.classList.remove('hidden');
-            success.classList.add('hidden');
-            form.reset();
-        }
-
-        if (trigger) trigger.addEventListener('click', openModal);
-        if (closeBtn) closeBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = form.querySelector('button[type=submit]');
-            const originalText = btn.textContent;
-            btn.textContent = 'Wird gesendet...';
-            btn.disabled = true;
-            fetch('https://formspree.io/f/xeebeege', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: form.querySelector('input[name=name]').value,
-                    unternehmen: form.querySelector('input[name=unternehmen]').value,
-                    email: form.querySelector('input[name=email]').value,
-                    nachricht: form.querySelector('textarea[name=nachricht]').value
-                })
-            })
-            .then(r => {
-                if (r.ok) {
-                    form.classList.add('hidden');
-                    success.classList.remove('hidden');
-                    setTimeout(closeModal, 3000);
-                } else {
-                    alert('Fehler beim Senden. Bitte erneut versuchen.');
-                    btn.textContent = originalText;
-                    btn.disabled = false;
-                }
-            })
-            .catch(() => {
-                alert('Verbindung fehlgeschlagen. Bitte erneut versuchen.');
-                btn.textContent = originalText;
-                btn.disabled = false;
-            });
-        });
-    })();
-</script>
 <script>
     (function(){
         const modal = document.getElementById('trend-report-modal');
